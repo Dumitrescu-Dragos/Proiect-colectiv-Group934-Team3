@@ -2,8 +2,8 @@ import * as React from 'react';
 
 export interface IFormField {
     key: string;
-    label: string;
-    type: 'text' | 'password' | 'email';
+    label?: string;
+    type: 'text' | 'password' | 'email' | 'checkbox';
     placeholder?: string;
     value?: string;
 }
@@ -16,9 +16,6 @@ interface FormData {
 interface IFormProps {
     title: string;
     fields: IFormField[];
-
-    modal?: boolean;
-
     onSubmit: () => void;
     onCancel: () => void;
 }
@@ -79,13 +76,28 @@ export default class Form extends React.Component<IFormProps, IFormState> {
     }
 
     private renderFromField = (formField: IFormField) => { 
-        return (
-            <div className='form-field' key={formField.key}>
+
+        let fieldLabel: JSX.Element = (                
+            <> </>
+        );
+
+        if (formField.label !== undefined) {
+            fieldLabel = (
                 <div className='form-field-label'>
                     {formField.label}
                 </div>
+            );
+        }
+
+        let className: string = 'form-field-input';
+        if (formField.type === 'checkbox')
+            className = 'form-field-checkbox';
+
+        return (
+            <div className='form-field' key={formField.key}>
+                {fieldLabel}
                 <input 
-                    className='form-field-input'
+                    className={className}
                     type={formField.type} 
                     placeholder={formField.placeholder !== undefined ? formField.placeholder : ''} 
                     onChange={(event: any) => {
@@ -113,9 +125,6 @@ export default class Form extends React.Component<IFormProps, IFormState> {
     public render () {
 
         let className: string = 'form shadow';
-        if (this.props.modal) {
-            className = 'form shadow form-modal';
-        }
 
         return (
             <form className={className}>
@@ -127,8 +136,7 @@ export default class Form extends React.Component<IFormProps, IFormState> {
                     {this.renderFromFields()}
                 </div>
                 <hr />
-                <button type='button' onClick={this.onSubmit}> Submit </button>
-                <button type='button' onClick={this.props.onCancel}> Cancel </button>
+                <button className='button' type='button' onClick={this.onSubmit}> Submit </button>
             </form>
         ); 
     }

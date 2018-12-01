@@ -1,7 +1,4 @@
 .form {
-    width: 60%;
-    border: 1px solid lightgray;
-    border-radius: 10px;
     padding: 10px;
     background-color: white;
     z-index: 2;
@@ -36,11 +33,35 @@
     margin-bottom: 10px;
 }
 
-.form-modal {
-    position: fixed;
-    left: 0; 
-    right: 0;
-    top: 20%;
-    margin-left: auto; 
-    margin-right: auto; 
+.form .button {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.form-field-input { 
+    padding: 6px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    font-size: 10pt;
+    transition: 0.2s ease;
+}
+
+.form-field-input:focus {
+    outline: none;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.45);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.45);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.45);
+}
+
+.form-field-checkbox {
+    -webkit-appearance:none;
+    width:20px;
+    height:20px;
+    background:white;
+    border-radius:5px;
+    border:1px solid lightgray;
+}
+.form-field-checkbox:checked {
+    background: lightgreen;
 }

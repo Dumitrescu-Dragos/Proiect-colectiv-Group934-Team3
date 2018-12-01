@@ -19,7 +19,6 @@ export default class StartView extends React.Component<IStartViewProps, IStartVi
             <>
                 <Form 
                     title = 'Example Form'
-                    modal = {true}
                     fields = {[
                         {key: 'field1', label: 'Field 1', type: 'email', placeholder: 'Field 1 text'},
                         {key: 'field2', label: 'Field 2', type: 'password', placeholder: 'Field 2 text'},
