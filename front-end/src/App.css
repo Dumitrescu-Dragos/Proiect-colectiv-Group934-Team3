@@ -5,6 +5,8 @@
 @import 'components/header/header.css';
 
 @import 'views/landingPage/LandingPage.css';
+@import 'views/allAdsView/AllAdsView.css';
+@import 'views/myAdsView/MyAdsView.css';
 
 /*
     General theme
