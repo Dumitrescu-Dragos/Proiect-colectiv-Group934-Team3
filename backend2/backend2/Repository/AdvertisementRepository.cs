@@ -9,7 +9,7 @@ namespace backend2.Repository
     public class AdvertisementRepository
     {
         List<Advertisement> advertisements = new List<Advertisement>();
-
+        
         public AdvertisementRepository()
         {
             IList<ToolImage> images = new List<ToolImage>();

@@ -20,21 +20,23 @@ namespace backend2.Controllers
     public class AdvertisementController : ControllerBase
     {
         AdvertisementRepository repository = new AdvertisementRepository();
+
         
-         
        
 
 
         // GET: api/Advertisement
         [HttpGet]
-        [Produces ("application/json")]
+        
         public IEnumerable<Advertisement> Get()
         {
             return repository.GetAdvertisements();
             //return new string[] { "value1", "value2" };
+            
 
-            
-            
+
+
+
         }
 
         // GET: api/Advertisement/5

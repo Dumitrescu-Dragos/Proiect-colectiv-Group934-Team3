@@ -41,6 +41,8 @@ namespace backend2
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
 
+
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
