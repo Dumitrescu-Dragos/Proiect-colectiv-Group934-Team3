@@ -1,14 +1,19 @@
 import * as React from 'react';
+import Select from '../select/Select';
 
 export interface IFormField {
     key: string;
     label?: string;
-    type: 'text' | 'password' | 'email' | 'checkbox';
+    type: 'text' | 'password' | 'email' | 'checkbox' | 'select' | 'date';
     placeholder?: string;
     value?: string;
 }
 
-interface FormData {
+export interface IFormDropDown extends IFormField {
+    valueSet: string[];
+}
+
+export interface FormData {
     key: string;
     value: string;
 }
@@ -16,8 +21,7 @@ interface FormData {
 interface IFormProps {
     title: string;
     fields: IFormField[];
-    onSubmit: () => void;
-    onCancel: () => void;
+    onSubmit: (formData: FormData[]) => void;
 }
 
 interface IFormState {
@@ -37,9 +41,6 @@ interface IFormState {
         ]}
         onSubmit = {() => {
             // Code that is executed before the form is submited
-        }}
-        onCancel = {() => {
-            // Code that is executed when the close button is clicked
         }}
     />
  * 
@@ -93,17 +94,32 @@ export default class Form extends React.Component<IFormProps, IFormState> {
         if (formField.type === 'checkbox')
             className = 'form-field-checkbox';
 
-        return (
-            <div className='form-field' key={formField.key}>
-                {fieldLabel}
-                <input 
+        let inputComponent: JSX.Element =
+            <input 
+                    key={this.props.title + '-' + formField.key}
                     className={className}
                     type={formField.type} 
                     placeholder={formField.placeholder !== undefined ? formField.placeholder : ''} 
                     onChange={(event: any) => {
                         this.onFieldChanged(formField.key, event.target.value)
                     }}
-                />
+            />;
+
+        if (formField.type === 'select') {
+            className = 'form-field-select';
+            inputComponent =
+                <Select 
+                    dataSource={['Male', 'Female', 'Other']} 
+                    onChange={(selectValue) => {
+                        this.onFieldChanged(formField.key, selectValue !== undefined ? selectValue : '')
+                    }} 
+                />;
+        }
+
+        return (
+            <div className='form-field' key={this.props.title + '-' + formField.key}>
+                {fieldLabel}
+                {inputComponent}
             </div>
         ); 
     }
@@ -119,7 +135,7 @@ export default class Form extends React.Component<IFormProps, IFormState> {
     }
 
     private onSubmit = () => {
-        this.props.onSubmit();
+        this.props.onSubmit(this.state.formData);
     }
 
     public render () {
@@ -127,7 +143,7 @@ export default class Form extends React.Component<IFormProps, IFormState> {
         let className: string = 'form shadow';
 
         return (
-            <form className={className}>
+            <div className={className}>
                 <div className='form-title'>
                     {this.props.title}
                 </div>
@@ -137,7 +153,7 @@ export default class Form extends React.Component<IFormProps, IFormState> {
                 </div>
                 <hr />
                 <button className='button' type='button' onClick={this.onSubmit}> Submit </button>
-            </form>
+            </div>
         ); 
     }
 

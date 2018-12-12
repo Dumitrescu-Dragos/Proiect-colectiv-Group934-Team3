@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Form from '../form/Form';
+import { LoginForm, RegisterForm } from '../form/StaticForms';
 // import axios from 'axios';
 
 export type TabType = 'login' | 'register';
@@ -21,7 +21,7 @@ export default class AuthemticationView extends React.Component <IAuthentication
         super(props);
 
         this.state = {
-            tabToRender: this.props.tabToRender !== undefined ? this.props.tabToRender : 'login'
+            tabToRender: this.props.tabToRender !== undefined ? this.props.tabToRender : 'login',
         };
     }
 
@@ -33,12 +33,12 @@ export default class AuthemticationView extends React.Component <IAuthentication
 
     public render () {
 
-        let content: JSX.Element = this.renderLoginForm();
-
-        if (this.state.tabToRender === 'register') 
-            content = this.renderRegisterForm();
-
         let tabButtonClass: string = 'tab-button';
+
+        // Predefined login form from ../components/form/StaticFroms
+        let loginForm = LoginForm;
+        // Predefined register form from ../components/form/StaticFroms
+        let registerForm = RegisterForm;
 
         return (
             <div className='auth-view'>
@@ -51,45 +51,9 @@ export default class AuthemticationView extends React.Component <IAuthentication
                     </div>
                 </div>
                 <div className='content'>
-                    {content}
+                    {this.state.tabToRender === 'login' ? loginForm : registerForm} 
                 </div>
             </div>
-        );
-    }
-
-    private renderLoginForm = ():JSX.Element => {
-        return (
-            <Form 
-                title = 'Login'
-                fields = {[
-                    {key: 'email', label: 'Email', type: 'email', placeholder: 'email'},
-                    {key: 'password', label: 'Password', type: 'password', placeholder: 'password'},
-                    {key: 'rememberMe', type: 'checkbox', label: 'Remember me'},
-                ]}
-                onSubmit = {() => {
-                    // TODO: http request for login
-                }}
-                onCancel = {() => {}}
-            />
-        );
-    }
-
-    private renderRegisterForm = ():JSX.Element => {
-        return (
-            <Form 
-                title = 'Register'
-                fields = {[
-                    {key: 'email', label: 'Email', type: 'email', placeholder: 'email'},
-                    {key: 'password', label: 'Password', type: 'password', placeholder: 'password'},
-                    {key: 'firstname', label: 'First Name', type: 'text', placeholder: 'first name'},
-                    {key: 'lastname', label: 'Last Name', type: 'text', placeholder: 'last name'},
-                    {key: 'whatever', label: 'Whatever', type: 'text', placeholder: 'whatever'},
-                ]}
-                onSubmit = {() => {
-                    // TODO: http request for register
-                }}
-                onCancel = {() => {}}
-            />
         );
     }
 
