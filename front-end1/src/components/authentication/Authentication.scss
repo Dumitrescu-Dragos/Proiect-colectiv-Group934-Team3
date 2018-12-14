@@ -1,0 +1,29 @@
+@import './../../theme.scss';
+
+.auth-view {
+    width: 100%;
+    border: 1px solid gray;
+    background-color: #fefefe;
+    border-radius: 5px;
+    overflow: hidden;
+
+    .tabs {
+        width: 100%;
+        display: flex;
+
+        .tab-button {
+            width: 100%;
+            display: flex;
+            align-content: center;
+            align-items: center;
+            padding: 10px;
+            background-color: $light-blue-color;
+            cursor: pointer;
+
+            .sellected {
+                background-color: $white-color;
+            }
+        }
+    }
+}
+

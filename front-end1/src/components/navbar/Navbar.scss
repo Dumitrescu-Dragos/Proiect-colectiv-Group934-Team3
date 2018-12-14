@@ -1,0 +1,119 @@
+@import './../../theme.scss';
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+
+  a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+
+    &:hover{
+      background-color: $red-color;
+    }
+  }
+
+  // guest dropdown
+  .guest-dropdown {
+    float: left;
+    overflow: hidden;
+
+    .guest-dropbtn {
+      font-size: 16px;
+      border: none;
+      outline: none;
+      color: white;
+      padding: 14px 16px;
+      background-color: inherit;
+      font-family: inherit;
+      margin: 0;
+    }
+
+    .guest-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+
+      a {
+        float: none;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+
+        &:hover{
+          background-color: $light-blue-color;
+        }
+      }
+    }
+
+    &:hover{
+      .guest-dropbtn{
+        background-color: $red-color;
+      }
+
+      .guest-content {
+        display: block;
+      }
+    }
+  }
+
+  //user dropdown
+
+  .user-dropdown {
+    float: left;
+    overflow: hidden;
+
+    .user-dropbtn {
+      font-size: 16px;
+      border: none;
+      outline: none;
+      color: white;
+      padding: 14px 16px;
+      background-color: inherit;
+      font-family: inherit;
+      margin: 0;
+    }
+
+    .user-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+
+      a {
+        float: none;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+
+        &:hover{
+          background-color: $light-blue-color;
+        }
+      }
+
+      &:hover{
+        .user-dropbtn{
+          background-color: $red-color;
+        }
+
+        .user-content {
+          display: block;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+@import './../../theme.scss';
+
+.landing-page {
+  margin-top: 50px;
+
+  .landing-page-content {
+    padding-right: 40px;
+
+    .landing-page-dialog {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+
+    h1, h3 {
+      width: 100%;
+    }
+
+    h1 {
+      margin-bottom: 5px;
+      margin-top: 0px;
+    }
+
+    h3 {
+      margin-top: 5px;
+    }
+
+    p {
+      text-align: justify;
+      color: gray;
+    }
+  }
+}

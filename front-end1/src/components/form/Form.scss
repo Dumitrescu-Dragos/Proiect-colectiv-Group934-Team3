@@ -1,0 +1,67 @@
+@import './../../theme.scss';
+
+.form {
+  padding: 10px;
+  background-color: $white-color;
+  z-index: 2;
+
+  hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+  }
+
+  .form-title {
+    margin-top: 5px;
+  }
+
+  .form-field-label {
+    color: $dark-blue-color;
+    margin-right: 15px;
+  }
+
+  .form-field-input {
+    flex-grow: 2;
+    padding: 6px;
+    border: 1px solid $light-blue-color;
+    border-radius: 5px;
+    font-size: 10pt;
+    transition: 0.2s ease;
+
+    &:focus {
+      outline: none;
+      -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.45);
+      -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.45);
+      box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.45);
+    }
+  }
+
+  .form-field {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    margin-bottom: 10px;
+  }
+
+  .form-field-checkbox {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+
+    &:checked {
+      background: lightgreen;
+    }
+  }
+
+  .button {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
