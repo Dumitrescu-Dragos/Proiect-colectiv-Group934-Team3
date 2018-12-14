@@ -16,8 +16,8 @@ export default class Navbar extends React.Component<INavbarProps, INavbarStates>
         super(props);
 		
 		this.state = {
-			guest: 'guestPlaceholder';
-			user: 'userPlaceholder';
+			guest: 'guestPlaceholder',
+			user: 'userPlaceholder'
 		}
     }
 	
