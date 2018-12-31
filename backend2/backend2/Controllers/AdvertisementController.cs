@@ -32,10 +32,6 @@ namespace backend2.Controllers
         {
             return repository.GetAdvertisements();
             //return new string[] { "value1", "value2" };
-            
-
-
-
 
         }
 
