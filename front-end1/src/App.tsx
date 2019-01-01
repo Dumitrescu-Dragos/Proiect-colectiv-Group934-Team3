@@ -5,26 +5,22 @@ import './App.scss';
 import { Switch, Route, BrowserRouter } from 'react-router-dom'
 // import StartView from './views/startView/StartView';
 import LandingPage from './views/landingPage/LandingPage';
-import Header from './components/header/Header';
 import AllAdsView from './views/allAdsView/AllAdsView';
 import MyAdsView from './views/myAdsView/MyAdsView';
+import NotFound from './views/notFoundView/NotFoundView';
 
 class App extends Component {
   render() {
     return (
       <>
-        <Header />
         <BrowserRouter>
         <>
           <Switch>
             <Route exact path='/' component={LandingPage} />
+            <Route exact path='/all-ads' component={AllAdsView} />
+            <Route exact path='/my-ads' component={MyAdsView} />
+            <Route component={NotFound} />
           </Switch>
-          <Switch>
-            <Route exact path='/AllAds' component={AllAdsView} />
-          </Switch>
-          <Switch>
-            <Route exact path='/MyAds' component={MyAdsView} />
-        </Switch>
         </>
       </BrowserRouter>
       </>
