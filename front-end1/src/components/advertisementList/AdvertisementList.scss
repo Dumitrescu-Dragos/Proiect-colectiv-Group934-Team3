@@ -1,6 +1,8 @@
+@import "./../../theme.scss";
+
 .main-ad-list{
     width: 100%;
-    
+
     .ad-list{
         display: flex;
         flex-direction: column;
@@ -8,9 +10,9 @@
         width: 100%;
     }
     .paginate{
-        max-width: 1070px;
+        max-width: 1050px;
         margin: 0 auto;
-        ul {
+        .pagination {
             display: flex;
             justify-content: space-between;
             padding-left: 15px;
@@ -19,6 +21,31 @@
             li {
                 display: inline-block;
                 margin: 2px;
+                font: inherit;
+                color: $medium-blue-color;
+                font-weight: 600;
+                border-radius: 5%;
+
+                a{
+                    padding: 6px 10px;
+                }
+
+                &.active a{
+                    color: $white-color;
+                    background: $medium-blue-color;
+
+                    &:hover{
+                        color: $white-color;
+                        background: $medium-blue-color;
+                    }
+                }
+                
+
+                & a:hover{
+                    background: $lightest-gray;
+                    color: $dark-blue-color;
+                    cursor: pointer;
+                }
             }
         }
     }

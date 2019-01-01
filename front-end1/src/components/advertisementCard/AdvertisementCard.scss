@@ -1,35 +1,55 @@
+$material-icons-font-path: '~material-icons/iconfont/';
 @import './../../theme.scss';
+@import '~material-icons/iconfont/material-icons.scss';
 
 .advertisement-card{
     display: flex;
     align-items: stretch;
     justify-content: space-between;
     border: $lighter-gray 1px solid;
+    -moz-box-shadow: 0 2px 3px $light-gray;
+    -webkit-box-shadow: 0 2px 3px $light-gray;
+    box-shadow:  0 2px 3px $light-gray;
     margin: 10px;
     padding: 15px;
-    max-width: 1070px;
+    max-width: 1000px;
+
+    &:hover{
+        cursor: pointer;
+        background: $lightest-gray;
+    }
 
     .card-image{
+        background: $white-color;
         margin-right: 25px;
+        height: 210px;
         img{
             padding: 5px;
             border: $light-gray 1px solid;
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
+            width: 300px;
+            height: 300px;
+            max-width: 200px;
+            max-height: 200px;
+            object-fit: contain;
         }
     }
 
     .card-content{
+        position: relative;
+        color: $dark-blue-color;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
 
         .card-title{
+            margin: 10px 0;
+            font-size: 26px;
             flex: 1;
         }
 
         .card-role{
+            color: $medium-blue-color;
+            font-size: 20px;
             flex: 1;
             .role-category{
 
@@ -46,6 +66,38 @@
         }
         .card-description{
             flex: 3;
+        }
+
+        .card-status{
+            position: absolute;
+            top: 15px;
+            right: 10px;
+            font-size: 20px;
+            vertical-align: center;
+
+            .unavailable{
+                color: $red-color;
+            }
+
+            .available{
+                color: $green-color;
+            }
+
+            .material-icons{
+                transform: translateY(20%);
+                margin: 0 5px;
+            }
+        }
+
+        .card-rental-period{
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            color: $light-gray;
+            .number-of-days{
+                color: $dark-blue-color;
+                font-weight: bold;
+            }
         }
     }
 }

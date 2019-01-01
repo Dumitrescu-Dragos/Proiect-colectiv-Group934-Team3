@@ -59,23 +59,30 @@ export default class AllAdsView extends React.Component<any, IAllAdsViewState> {
     private loadAdsFromServerTest = () => {
         let data: Advertisement[] = [];
 
-        let tool: Tool = {
+        let tools: Tool[] = [{
             id: 1,
-            name: "ScrewDriver X200",
+            name: "Craftsman 9-41584 1/4",
             isAvailable: true,
             techSpec: "The tool has the following tech specs",
-            imageUrls: []
-        }
+            imageUrls: ["https://images-na.ssl-images-amazon.com/images/I/61i5G6kx3CL._SL1500_.jpg"]
+        },
+        {
+            id: 2,
+            name: "Dalluge 7180",
+            isAvailable: false,
+            techSpec: "16 Ounce Titanium Hammer",
+            imageUrls: ["https://images-na.ssl-images-amazon.com/images/I/71YBKac64BL._SX425_.jpg"]
+        }];
 
         let types: string[] = ["Hobby", "Professional"];
 
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i < 97; i++) {
             let element: Advertisement = {
                 id: i,
-                title: "Title " + i,
+                title: "Title - a resource " + i,
                 category: this.state.filter.categories[i % 3],
                 type: types[i % 2],
-                tool: tool,
+                tool: tools[i%2],
                 description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut felis sem, bibendum sit amet ornare eu, tincidunt vitae lectus. Etiam condimentum, massa in venenatis tristique, tellus ligula feugiat nisi, sit amet lacinia nisi odio et justo. Proin placerat lorem sed quam maximus accumsan. Curabitur rhoncus maximus urna.",
             }
             data.push(element);

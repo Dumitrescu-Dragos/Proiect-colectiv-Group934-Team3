@@ -26,6 +26,16 @@ const advertismentCard = (props: IProps) => {
                 <div className="card-description">
                     {advertisement.description !=undefined ? advertisement.description.slice(0,250) + "..." : null}
                 </div>
+                <div className="card-status">
+                    {tool !== undefined && tool.isAvailable ? 
+                    <div className="available">Available
+                    <span className="material-icons">check</span></div>:
+                    <span className="unavailable">Unavailable<span className="material-icons">close</span></span> 
+                     }
+                </div>
+                <div className="card-rental-period">
+                    Rental period: <span className="number-of-days">{advertisement.periodOfTime ? advertisement.periodOfTime + " days" : "unspecified"}</span>
+                </div>
             </div>
         </div>
     )

@@ -47,6 +47,7 @@ class AdvertisementList extends React.Component<IProps, IState>{
 
         const selectedData: Advertisement[] = data.slice(offset, offset+limit);
 
+        window.scrollTo(0,50);
         this.setState({ currentPageAdvertisements: selectedData, pageCount: Math.ceil(data.length / limit) });
     }
 
@@ -56,9 +57,9 @@ class AdvertisementList extends React.Component<IProps, IState>{
                 <div className="ad-list">
                     {this.state.currentPageAdvertisements.map(ad => (<AdvertisementCard key={ad.id} data={ad} />))}
                 </div>
-                <div className="paginate">
-                        <ReactPaginate previousLabel={"previous"}
-                            nextLabel={"next"}
+                {this.props.pageLimit < this.props.advertisements.length ? <div className="paginate">
+                        <ReactPaginate previousLabel={"<< previous"}
+                            nextLabel={"next >>"}
                             breakLabel={"..."}
                             breakClassName={"break-me"}
                             pageCount={this.state.pageCount !== undefined ? this.state.pageCount : 0}
@@ -67,7 +68,7 @@ class AdvertisementList extends React.Component<IProps, IState>{
                             onPageChange={this.handlePageClick}
                             containerClassName={"pagination"}
                             activeClassName={"active"} />
-                    </div>
+                    </div> : null}
             </div>
         );
     }
