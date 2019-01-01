@@ -1,0 +1,26 @@
+.main-ad-list{
+    width: 100%;
+    
+    .ad-list{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .paginate{
+        max-width: 1070px;
+        margin: 0 auto;
+        ul {
+            display: flex;
+            justify-content: space-between;
+            padding-left: 15px;
+            padding-right: 15px;
+
+            li {
+                display: inline-block;
+                margin: 2px;
+            }
+        }
+    }
+}
+

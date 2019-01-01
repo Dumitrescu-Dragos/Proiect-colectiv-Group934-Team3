@@ -1,0 +1,51 @@
+@import './../../theme.scss';
+
+.advertisement-card{
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    border: $lighter-gray 1px solid;
+    margin: 10px;
+    padding: 15px;
+    max-width: 1070px;
+
+    .card-image{
+        margin-right: 25px;
+        img{
+            padding: 5px;
+            border: $light-gray 1px solid;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+    }
+
+    .card-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        .card-title{
+            flex: 1;
+        }
+
+        .card-role{
+            flex: 1;
+            .role-category{
+
+            }
+
+            .role-delimiter{
+                margin: 0 0.5em;
+            }
+
+            .role-type{
+
+            }
+
+        }
+        .card-description{
+            flex: 3;
+        }
+    }
+}

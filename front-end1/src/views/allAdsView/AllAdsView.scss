@@ -1,0 +1,24 @@
+.all-ads{
+    width: 100%;
+    .ads-list{
+        width: 100%;
+
+        .paginate{
+            max-width: 1070px;
+            margin: 0 auto;
+            ul {
+                display: flex;
+                justify-content: space-between;
+                padding-left: 15px;
+                padding-right: 15px;
+
+                li {
+                display: inline-block;
+                margin: 2px;
+                }
+            }
+        }
+    }
+
+    
+}
