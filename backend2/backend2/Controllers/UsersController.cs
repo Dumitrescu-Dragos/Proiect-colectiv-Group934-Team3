@@ -7,9 +7,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using backend2.Data;
 using backend2.Model;
+using Microsoft.AspNetCore.Authorization;
+using System.IdentityModel.Tokens.Jwt;
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
 
 namespace backend2.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
@@ -48,53 +54,57 @@ namespace backend2.Controllers
         }
 
         // PUT: api/Users/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser([FromRoute] int id, [FromBody] User user)
+        [AllowAnonymous]
+        [HttpPut("{inviteId}")]
+        public async Task<IActionResult> Signup([FromRoute] int inviteId, [FromBody] User user)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != user.Id)
-            {
-                return BadRequest();
-            }
+            //search and delete invite id - TO DO
+
+
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
 
             _context.Entry(user).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!UserExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
 
             return NoContent();
         }
 
         // POST: api/Users
+        [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> PostUser([FromBody] User user)
+        public async Task<IActionResult> Login([FromBody] User user)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
+            var foundUser = _context.Users.SingleOrDefault(x => x.Email == user.Email);
 
-            return CreatedAtAction("GetUser", new { id = user.Id }, user);
+            // check if username exists
+            if (foundUser == null)
+                return null;
+
+            // check if password is correct
+            if (foundUser.Password != user.Password)
+                return null;
+
+            // authentication successful
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes("parola mega secreta");
+            var tokenDescriptor = new SecurityTokenDescriptor {
+                Subject = new ClaimsIdentity(),
+                Expires = DateTime.Now.AddDays(3),
+                SigningCredentials = new SigningCredentials( new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            var tokenString = tokenHandler.WriteToken(token);
+            return Ok(tokenString);
         }
 
         // DELETE: api/Users/5

@@ -14,7 +14,8 @@ namespace backend2.Controllers
     [ApiController]
     public class AdvertisementsController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        //this will be refactored
+        private ApplicationDbContext _context;
 
         public AdvertisementsController(ApplicationDbContext context)
         {

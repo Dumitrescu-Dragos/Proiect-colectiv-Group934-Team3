@@ -1,4 +1,5 @@
-﻿using backend2.Model;
+﻿using backend2.Data;
+using backend2.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +9,12 @@ namespace backend2.Repository
 {
     public class AdvertisementRepository
     {
-        List<Advertisement> advertisements = new List<Advertisement>();
-        
-        public AdvertisementRepository()
+        ApplicationDbContext context;
+
+        public AdvertisementRepository(ApplicationDbContext ctx)
         {
-            IList<ToolImage> images = new List<ToolImage>();
-            Tool t = new Tool { ToolId = 1, Name = "Pistol de vopsit", TechSpecs = "specificatii pistol", IsAvailable = true, Images = images };
+            context = ctx;
+            /*Tool t = new Tool { ToolId = 1, Name = "Pistol de vopsit", TechSpecs = "specificatii pistol", IsAvailable = true, Images = images };
             Advertisement a1 = new Advertisement
             {
                 Id = 1,
@@ -70,25 +71,30 @@ namespace backend2.Repository
             };
             advertisements.Add(a1);
             advertisements.Add(a2);
-            advertisements.Add(a3);
+            advertisements.Add(a3);*/
         }
         public void addAdvertisement(Advertisement a)
         {
-            advertisements.Add(a);
+            context.Advertisements.AddAsync(a);
+            context.SaveChangesAsync();
         }
         public Advertisement getAdvertisementById(int id)
         {
-            Advertisement adv = advertisements.Find(a => a.Id == id);
+            Advertisement adv = context.Advertisements.ToList().Find(a => a.Id == id);
             return adv;
         }
+
+
+
         public void deleteAdvertisement(int id)
         {
-            Advertisement adv = advertisements.Find(a => a.Id == id);
-            advertisements.Remove(adv);
+            Advertisement adv = context.Advertisements.ToList().Find(a => a.Id == id);
+            context.Advertisements.Remove(adv);
+            context.SaveChangesAsync();
         }
         public List<Advertisement> GetAdvertisements()
         {
-            return advertisements;
+            return context.Advertisements.ToList();
         }
     }
 }

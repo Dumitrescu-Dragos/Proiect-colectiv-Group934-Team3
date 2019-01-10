@@ -12,6 +12,9 @@ using Microsoft.EntityFrameworkCore;
 using backend2.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace backend2
 {
@@ -40,6 +43,34 @@ namespace backend2
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+            //Add authentication with jwt(default one)
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.Events = new JwtBearerEvents
+                {
+                    OnTokenValidated = context =>
+                    {
+                        //the userId is kept so we can use it in the controllers
+                        var userId = int.Parse(context.Principal.Identity.Name);
+                        return Task.CompletedTask;
+                    }
+
+                };
+                options.RequireHttpsMetadata = false;
+                options.SaveToken = true;
+                //how the token validation is made: using our secret string as a key
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("parola mega secreta")),
+                    ValidateAudience = false,
+                    ValidateIssuer = false
+                };
+            });
 
 
 
