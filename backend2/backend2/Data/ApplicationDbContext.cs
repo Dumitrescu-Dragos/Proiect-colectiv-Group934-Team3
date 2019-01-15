@@ -10,8 +10,6 @@ namespace backend2.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
-      
-
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         { }
@@ -24,6 +22,7 @@ namespace backend2.Data
         public DbSet<Tool> Tools { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<ToolImage> ToolImages { get; set; }
+        public DbSet<Invite> Invites { get; set; }
 
        
 

@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using backend2.Model;
 
 namespace backend2
 {
@@ -22,6 +23,8 @@ namespace backend2
     {
         public Startup(IConfiguration configuration)
         {
+            AutoMapper.Mapper.Initialize(cfg => cfg.AddProfile<AutoMapperProfile>());
+
             Configuration = configuration;
         }
 

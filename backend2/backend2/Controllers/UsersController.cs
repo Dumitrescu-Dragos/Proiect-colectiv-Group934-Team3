@@ -12,6 +12,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
+using AutoMapper.QueryableExtensions;
+using AutoMapper;
 
 namespace backend2.Controllers
 {
@@ -35,6 +37,7 @@ namespace backend2.Controllers
         }
 
         // GET: api/Users/5
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUser([FromRoute] int id)
         {
@@ -56,29 +59,55 @@ namespace backend2.Controllers
         // PUT: api/Users/5
         [AllowAnonymous]
         [HttpPut("{inviteId}")]
-        public async Task<IActionResult> Signup([FromRoute] int inviteId, [FromBody] User user)
+        public async Task<IActionResult> Signup([FromRoute] string inviteId, [FromBody] UserRegisterDTO user)
         {
+            Console.Out.WriteLine(1);
             if (!ModelState.IsValid)
             {
+                Console.Out.WriteLine(2);
+                return BadRequest(ModelState);
+            }
+            Console.Out.WriteLine(3);
+
+            User user_to_register = new Model.User();
+            Console.Out.WriteLine(4);
+            Mapper.Map(user, user_to_register);
+            Console.Out.WriteLine(5);
+
+            //search and delete invite id
+            Invite givenInv = _context.Invites.SingleOrDefault(x => x.InviteId == inviteId);
+
+            Console.Out.WriteLine(6);
+            if (givenInv == null)
+            {
+                Console.Out.WriteLine(7);
                 return BadRequest(ModelState);
             }
 
-            //search and delete invite id - TO DO
+            Console.Out.WriteLine(8);
+            _context.Invites.Remove(givenInv);
 
+            //invite id confirmed
+            //add user
 
-            _context.Users.Add(user);
+            Console.Out.WriteLine(9);
+            _context.Users.Add(user_to_register);
+            Console.Out.WriteLine(10);
             await _context.SaveChangesAsync();
 
+            Console.Out.WriteLine(11);
             _context.Entry(user).State = EntityState.Modified;
 
+            Console.Out.WriteLine(12);
             return NoContent();
         }
 
         // POST: api/Users
         [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> Login([FromBody] User user)
+        public async Task<IActionResult> Login([FromBody] UserLoginDTO user)
         {
+            Console.Out.WriteLine(user.ToString());
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -98,7 +127,9 @@ namespace backend2.Controllers
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes("parola mega secreta");
             var tokenDescriptor = new SecurityTokenDescriptor {
-                Subject = new ClaimsIdentity(),
+                Subject = new ClaimsIdentity(new[] {
+                    new Claim(ClaimTypes.Name, foundUser.Id.ToString())
+                }),
                 Expires = DateTime.Now.AddDays(3),
                 SigningCredentials = new SigningCredentials( new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
@@ -115,7 +146,11 @@ namespace backend2.Controllers
             {
                 return BadRequest(ModelState);
             }
-
+            int thisuserid = int.Parse(this.User.Claims.First(i => i.Type == ClaimTypes.Name).Value);
+            if(thisuserid != id)
+            {
+                return BadRequest(ModelState);
+            }
             var user = await _context.Users.FindAsync(id);
             if (user == null)
             {

@@ -91,3 +91,6 @@ INSERT INTO [dbo].[Reviews] ([ReviewId], [Text], [Rating], [AdvertisementId]) VA
 INSERT INTO [dbo].[Reviews] ([ReviewId], [Text], [Rating], [AdvertisementId]) VALUES (4, 'Masina in stare buna, iar proprietarul foarte deschis - mi-a oferit si niste sfaturi.', 5, 1)
 SET IDENTITY_INSERT [dbo].[Reviews] OFF
 
+INSERT INTO [dbo].[Invites]([InviteId]) VALUES ('inviteid1')
+INSERT INTO [dbo].[Invites]([InviteId]) VALUES ('inviteid2')
+
