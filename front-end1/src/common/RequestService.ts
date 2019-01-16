@@ -10,7 +10,9 @@ export default class RequestService {
             return axios.get(url, {
                 data: body,
                 params: params,
-                headers: {"Access-Control-Allow-Origin": "*"}
+                headers: {
+                    'Content-Type': 'application/json',
+                }
             });
           } catch (error) {
             console.error(error)
