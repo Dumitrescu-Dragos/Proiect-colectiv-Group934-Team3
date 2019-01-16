@@ -58,7 +58,7 @@ class FilterManager extends React.Component<IProps, IState> {
                     <div className="other-filters">
                         <div className="available-field">
                             <label className="container"> 
-                                <input type="checkbox" checked={this.state.filter.availableFilter} onClick={this.availableChangeHandler}/>
+                                <input type="checkbox" checked={this.state.filter.availableFilter} onChange={this.availableChangeHandler}/>
                                 <span className="checkmark"></span>
                                 Only Available
                             </label>

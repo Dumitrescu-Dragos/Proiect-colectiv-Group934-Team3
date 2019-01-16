@@ -1,11 +1,20 @@
+import axios from 'axios'
+
 export default class RequestService {
 
     public constructor () {
-
     }
 
-    public doGET = () => {
-
+    static doGET = (url: string, body?: any, params?: any) => {
+        try {
+            return axios.get(url, {
+                data: body,
+                params: params,
+                headers: {"Access-Control-Allow-Origin": "*"}
+            });
+          } catch (error) {
+            console.error(error)
+          }
     }
 
     public doPOST = () => {

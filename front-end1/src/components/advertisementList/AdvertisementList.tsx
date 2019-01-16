@@ -41,11 +41,8 @@ class AdvertisementList extends React.Component<IProps, IState>{
     
     public componentDidUpdate(prevProps: IProps, prevState: IState) {
         let array1: Advertisement[] = this.props.advertisements;
-        console.log(array1.length)
         let array2: Advertisement[] = prevProps.advertisements;
-        console.log(array2.length)
         let equality: boolean = array1.length === array2.length && array1.every(function(value, index) { return value === array2[index]});
-        console.log(equality);
         if(!equality){
             this.loadPageData();
         }

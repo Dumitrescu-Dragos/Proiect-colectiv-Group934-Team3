@@ -1,6 +1,10 @@
 import { string } from "prop-types";
 
 export type Genders = 'male' | 'female' | 'other';
+
+const baseUrl: string = 'https://localhost:44331/api';
+export const getAdsUrl: string = baseUrl + "/advertisements/filters" ;
+export const getCategoriesUrl: string = baseUrl + "/categories"
 /**
  * Dtos
  */
