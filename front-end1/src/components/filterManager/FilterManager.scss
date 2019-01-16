@@ -1,0 +1,141 @@
+@import './../../theme.scss';
+
+.filter-manager{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: $lightest-gray;
+    width: 100%;
+    padding: 15px;
+    border-bottom: 2px solid $lighter-gray;
+    border-top: 2px solid $lighter-gray;
+    margin-bottom: 10px;
+
+    .content{
+        width: 100%;
+        box-sizing: border-box;
+        max-width: 1050px;
+        padding: 0 15px;
+        .main-filters{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+
+            .input-field{
+                font-size: 1.2em;
+                padding: 5px;
+            }
+
+            .search-field{
+                width: 30%;
+                input{
+                    width: 70%;
+                }
+            }
+
+            .distance-field{
+                width: 30%;
+                display: flex;
+
+                input{
+                    width: 60%;
+                    border-right-width: 2px;
+                }
+                .distance-list{
+                    border-left: 0;
+                    width: 40%;
+                    color: $light-gray;
+                }
+            }
+
+            .categories-dropdown{
+                width: 30%;
+                select{
+                    width: 70%;
+                    margin-left: 30%;
+                }
+            }   
+        }
+
+        .other-filters{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0 5px 0;
+
+            .available-field{
+                font-size: 1.2em;
+                .container {
+                    display: block;
+                    position: relative;
+                    padding-left: 35px;
+                    margin-bottom: 12px;
+                    cursor: pointer;
+                    color: $dark-blue-color;
+                    font-size: 22px;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+
+                    input {
+                        position: absolute;
+                        opacity: 0;
+                        cursor: pointer;
+                        height: 0;
+                        width: 0;
+
+                        &:checked ~ .checkmark {
+                            background-color: $medium-blue-color;
+
+                            &:after {
+                                display: block;
+                            }
+                        }
+                    }
+
+                    .checkmark {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 25px;
+                        width: 25px;
+                        background-color: $white-color;
+                        border: 1px solid $lighter-gray;
+
+                        &:after {
+                            content: "";
+                            position: absolute;
+                            display: none;
+                            left: 9px;
+                            top: 5px;
+                            width: 5px;
+                            height: 10px;
+                            border: solid white;
+                            border-width: 0 3px 3px 0;
+                            -webkit-transform: rotate(45deg);
+                            -ms-transform: rotate(45deg);
+                            transform: rotate(45deg);
+                        }
+                    }
+                    
+                    &:hover input ~ .checkmark {
+                        outline: 5px auto $medium-blue-color;
+                    }
+                }
+            }
+
+            .search-btn{
+                font-size: 1.2em;
+                padding: 5px;
+            }
+
+            .search-btn:hover{
+                outline: 5px auto $medium-blue-color;
+                border: 2px auto $light-blue-color;
+                cursor: pointer;
+            }
+        }   
+    }
+}

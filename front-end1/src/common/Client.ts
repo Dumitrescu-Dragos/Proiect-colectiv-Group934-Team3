@@ -51,3 +51,15 @@ export interface Advertisement{
     rentalConditions?: string;
     returnRequirements?: string;
 }
+
+export interface DistanceObject{
+    location: Address;
+    distance: number;
+}
+
+export interface FilterObject {
+    searchFilter: string | null;
+    categoryFilter: Category | null;
+    availableFilter: boolean;
+    distanceFilter?: DistanceObject;
+}
