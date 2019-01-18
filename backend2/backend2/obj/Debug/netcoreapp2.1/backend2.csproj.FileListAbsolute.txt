@@ -1,0 +1,105 @@
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\bin\Debug\netcoreapp2.1\backend2.deps.json
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\bin\Debug\netcoreapp2.1\backend2.runtimeconfig.json
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\bin\Debug\netcoreapp2.1\backend2.runtimeconfig.dev.json
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\bin\Debug\netcoreapp2.1\backend2.dll
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\bin\Debug\netcoreapp2.1\backend2.pdb
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\bin\Debug\netcoreapp2.1\backend2.Views.dll
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\bin\Debug\netcoreapp2.1\backend2.Views.pdb
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.csprojAssemblyReference.cache
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.csproj.CoreCompileInputs.cache
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.RazorAssemblyInfo.cache
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.RazorAssemblyInfo.cs
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.AssemblyInfoInputs.cache
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.AssemblyInfo.cs
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.TagHelpers.input.cache
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.TagHelpers.output.cache
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.RazorCoreGenerate.cache
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ViewStart.g.cshtml.cs
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\About.g.cshtml.cs
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\Contact.g.cshtml.cs
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\Error.g.cshtml.cs
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\Index.g.cshtml.cs
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\Privacy.g.cshtml.cs
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\_CookieConsentPartial.g.cshtml.cs
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\_Layout.g.cshtml.cs
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\_LoginPartial.g.cshtml.cs
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\_ValidationScriptsPartial.g.cshtml.cs
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\_ViewImports.g.cshtml.cs
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\_ViewStart.g.cshtml.cs
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.RazorTargetAssemblyInfo.cache
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.RazorTargetAssemblyInfo.cs
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.Views.pdb
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.dll
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.pdb
+C:\Users\adi77\Desktop\ProiectC\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.csproj.CopyComplete
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\bin\Debug\netcoreapp2.1\backend2.deps.json
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\bin\Debug\netcoreapp2.1\backend2.runtimeconfig.json
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\bin\Debug\netcoreapp2.1\backend2.runtimeconfig.dev.json
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\bin\Debug\netcoreapp2.1\backend2.dll
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\bin\Debug\netcoreapp2.1\backend2.pdb
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\bin\Debug\netcoreapp2.1\backend2.Views.dll
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\bin\Debug\netcoreapp2.1\backend2.Views.pdb
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.csprojAssemblyReference.cache
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.csproj.CoreCompileInputs.cache
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.RazorAssemblyInfo.cache
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.RazorAssemblyInfo.cs
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.AssemblyInfoInputs.cache
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.AssemblyInfo.cs
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.TagHelpers.input.cache
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.TagHelpers.output.cache
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.RazorCoreGenerate.cache
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ViewStart.g.cshtml.cs
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\About.g.cshtml.cs
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\Contact.g.cshtml.cs
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\Error.g.cshtml.cs
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\Index.g.cshtml.cs
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\Privacy.g.cshtml.cs
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\_CookieConsentPartial.g.cshtml.cs
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\_Layout.g.cshtml.cs
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\_LoginPartial.g.cshtml.cs
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\_ValidationScriptsPartial.g.cshtml.cs
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\_ViewImports.g.cshtml.cs
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\_ViewStart.g.cshtml.cs
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.RazorTargetAssemblyInfo.cache
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.RazorTargetAssemblyInfo.cs
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.Views.pdb
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.dll
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.pdb
+E:\an3sem1\proiect colectiv\backend2\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.csproj.CopyComplete
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\bin\Debug\netcoreapp2.1\backend2.deps.json
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\bin\Debug\netcoreapp2.1\backend2.runtimeconfig.json
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\bin\Debug\netcoreapp2.1\backend2.runtimeconfig.dev.json
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\bin\Debug\netcoreapp2.1\backend2.dll
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\bin\Debug\netcoreapp2.1\backend2.pdb
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\bin\Debug\netcoreapp2.1\backend2.Views.dll
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\bin\Debug\netcoreapp2.1\backend2.Views.pdb
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.csprojAssemblyReference.cache
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.csproj.CoreCompileInputs.cache
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.RazorAssemblyInfo.cache
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.RazorAssemblyInfo.cs
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.AssemblyInfoInputs.cache
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.AssemblyInfo.cs
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.TagHelpers.input.cache
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.TagHelpers.output.cache
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.RazorCoreGenerate.cache
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ViewStart.g.cshtml.cs
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\About.g.cshtml.cs
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\Contact.g.cshtml.cs
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\Error.g.cshtml.cs
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\Index.g.cshtml.cs
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\Privacy.g.cshtml.cs
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\_CookieConsentPartial.g.cshtml.cs
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\_Layout.g.cshtml.cs
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\_LoginPartial.g.cshtml.cs
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\_ValidationScriptsPartial.g.cshtml.cs
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\_ViewImports.g.cshtml.cs
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\Razor\Pages\_ViewStart.g.cshtml.cs
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.RazorTargetAssemblyInfo.cache
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.RazorTargetAssemblyInfo.cs
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.Views.pdb
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.dll
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.pdb
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\backend2.csproj.CopyComplete
+C:\Users\Titus\Desktop\school\ProiectColectiv\Proiect-colectiv-Group934-Team3\backend2\backend2\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
