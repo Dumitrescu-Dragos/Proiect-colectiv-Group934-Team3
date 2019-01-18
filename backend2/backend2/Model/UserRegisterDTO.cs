@@ -14,6 +14,7 @@ namespace backend2.Model
         public Gender Gender { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string PhoneNumber { get; set; }
+        public Address Address { get; set; }
 
     }
 }

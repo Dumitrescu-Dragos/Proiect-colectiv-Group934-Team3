@@ -61,44 +61,34 @@ namespace backend2.Controllers
         [HttpPut("{inviteId}")]
         public async Task<IActionResult> Signup([FromRoute] string inviteId, [FromBody] UserRegisterDTO user)
         {
-            Console.Out.WriteLine(1);
             if (!ModelState.IsValid)
             {
-                Console.Out.WriteLine(2);
                 return BadRequest(ModelState);
             }
-            Console.Out.WriteLine(3);
 
             User user_to_register = new Model.User();
-            Console.Out.WriteLine(4);
             Mapper.Map(user, user_to_register);
-            Console.Out.WriteLine(5);
 
             //search and delete invite id
             Invite givenInv = _context.Invites.SingleOrDefault(x => x.InviteId == inviteId);
-
-            Console.Out.WriteLine(6);
+            
             if (givenInv == null)
             {
-                Console.Out.WriteLine(7);
                 return BadRequest(ModelState);
             }
-
-            Console.Out.WriteLine(8);
+            
             _context.Invites.Remove(givenInv);
 
             //invite id confirmed
             //add user
-
-            Console.Out.WriteLine(9);
+            _context.Addresses.Add(user_to_register.Address);
+            user_to_register.AddressId = user_to_register.Address.AddressId;
             _context.Users.Add(user_to_register);
-            Console.Out.WriteLine(10);
             await _context.SaveChangesAsync();
 
-            Console.Out.WriteLine(11);
-            _context.Entry(user).State = EntityState.Modified;
-
-            Console.Out.WriteLine(12);
+            _context.Entry(user_to_register.Address).State = EntityState.Modified;
+            _context.Entry(user_to_register).State = EntityState.Modified;
+            
             return NoContent();
         }
 
