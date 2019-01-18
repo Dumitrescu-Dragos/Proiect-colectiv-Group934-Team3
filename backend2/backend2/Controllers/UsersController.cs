@@ -80,14 +80,17 @@ namespace backend2.Controllers
             _context.Invites.Remove(givenInv);
 
             //invite id confirmed
-            //add user
+            //add user address
             _context.Addresses.Add(user_to_register.Address);
-            user_to_register.AddressId = user_to_register.Address.AddressId;
-            _context.Users.Add(user_to_register);
-            await _context.SaveChangesAsync();
-
             _context.Entry(user_to_register.Address).State = EntityState.Modified;
+            user_to_register.AddressId = user_to_register.Address.AddressId;
+
+            //add user
+            _context.Users.Add(user_to_register);
             _context.Entry(user_to_register).State = EntityState.Modified;
+
+            //update context
+            await _context.SaveChangesAsync();
             
             return NoContent();
         }
