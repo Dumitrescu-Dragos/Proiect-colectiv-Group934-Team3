@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Form, { IFormDropDown } from './Form';
+import {loginURL, UserLogin} from "../../common/Client";
 
 /**
  * @author Maier Bogdan
@@ -50,24 +51,25 @@ export let LoginForm:JSX.Element =
             {key: 'rememberMe', type: 'checkbox', label: 'Remember me'},
         ]}
         onSubmit = {(formData) => {
+
+            var userlogin:UserLogin = {email: '', password:''};
             formData.forEach(element => {
-                console.log(element);
+                switch (element.key) {
+                    case "email": userlogin.email = element.value; break;
+                    case "password": userlogin.password = element.value; break;
+                }
             });
 
-            fetch("https://localhost:44331/api/Users", {
+            fetch(loginURL, {
                 method: "POST",
                 headers: {
-                    'Accept': "application/json",
+                    Accept: "application/json",
                     'Content-Type': "application/json"
                 },
-                body: JSON.stringify({
-                "email": "trifon.titus@yahoo.com",
-                "password": "Hala Madrid"
-                })
+                body: JSON.stringify(userlogin)
             })
                 .then(res => {
                     if (res.ok) {
-                        console.log("logged in\n");
                         return res.json();
                     } else {
                         console.log("not logged\n");
@@ -75,8 +77,10 @@ export let LoginForm:JSX.Element =
                     }
                 })
                 .then(json => {
-                    console.log(json);
+                    localStorage.setItem('token', json.toString());
                     console.log("logged in\n");
+                    //this.props.history.push("/my-ads");
+                    //return <Redirect to={'/my-ads'}/>
                 })
                 .catch(error => console.error(error));
         }}
