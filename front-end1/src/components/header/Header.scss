@@ -14,7 +14,7 @@ header {
 
     .nav {
         display: flex;
-        padding-right: 20px;
+        padding-right: 10px;
         align-items: center;
         justify-content: flex-end;
         width: 100%;
@@ -36,6 +36,13 @@ header {
                 background-color: $medium-blue-color;
                 color: $white-color;
             }
+        }
+
+        .logout-button{
+            margin-left: 10px;
+            margin-right: 10px;
+            padding-left: 5px;
+            padding-right: 5px;
         }
     }
 }
