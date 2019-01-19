@@ -1,6 +1,8 @@
 import * as React from 'react';
 import Form, { IFormDropDown } from './Form';
 import {Address, loginURL, registerURL, UserLogin, UserRegister} from "../../common/Client";
+import {Redirect} from "react-router";
+import { createBrowserHistory } from 'history';
 
 /**
  * @author Maier Bogdan
@@ -116,6 +118,8 @@ export let LoginForm:JSX.Element =
                 .then(json => {
                     localStorage.setItem('token', json.toString());
                     console.log("logged in\n");
+                    const history = createBrowserHistory({forceRefresh:true});
+                    history.push("/my-ads");
                     //this.props.history.push("/my-ads");
                     //return <Redirect to={'/my-ads'}/>
                 })
