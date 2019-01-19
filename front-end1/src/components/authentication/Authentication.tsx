@@ -16,7 +16,7 @@ interface IAuthenticationState {
 /**
  * @author Maier Bogdan
  */
-export default class AuthemticationView extends React.Component <IAuthenticationProps, IAuthenticationState> {
+export default class AuthenticationView extends React.Component <IAuthenticationProps, IAuthenticationState> {
 
     public constructor (props: IAuthenticationProps) {
         super(props);
