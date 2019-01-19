@@ -7,6 +7,7 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom'
 import LandingPage from './views/landingPage/LandingPage';
 import AllAdsView from './views/allAdsView/AllAdsView';
 import MyAdsView from './views/myAdsView/MyAdsView';
+import AdvertisementPreviewView from './views/advertisementPreviewView/AdvertisementPreviewView';
 import NotFound from './views/notFoundView/NotFoundView';
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
             <Route exact path='/' component={LandingPage} />
             <Route exact path='/all-ads' component={AllAdsView} />
             <Route exact path='/my-ads' component={MyAdsView} />
+              <Route exact path='/ad-preview' component={AdvertisementPreviewView} />
             <Route component={NotFound} />
           </Switch>
         </>
