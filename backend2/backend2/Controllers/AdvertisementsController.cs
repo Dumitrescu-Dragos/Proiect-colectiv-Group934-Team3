@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using backend2.Data;
 using backend2.Model;
+using Microsoft.AspNetCore.Authorization;
 
 namespace backend2.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class AdvertisementsController : ControllerBase

@@ -53,6 +53,31 @@ export let LoginForm:JSX.Element =
             formData.forEach(element => {
                 console.log(element);
             });
-            // TODO: http request for register
+
+            fetch("https://localhost:44331/api/Users", {
+                method: "POST",
+                headers: {
+                    'Accept': "application/json",
+                    'Content-Type': "application/json"
+                },
+                body: JSON.stringify({
+                "email": "trifon.titus@yahoo.com",
+                "password": "Hala Madrid"
+                })
+            })
+                .then(res => {
+                    if (res.ok) {
+                        console.log("logged in\n");
+                        return res.json();
+                    } else {
+                        console.log("not logged\n");
+                        throw Error(res.statusText);
+                    }
+                })
+                .then(json => {
+                    console.log(json);
+                    console.log("logged in\n");
+                })
+                .catch(error => console.error(error));
         }}
     />;
