@@ -15,13 +15,22 @@ export default class RequestService {
                     'Authorization': token !== undefined ? 'Bearer ' +  token : ''
                 }
             });
-          } catch (error) {
-            console.error(error)
-          }
+        } catch (error) {
+        console.error(error)
+        }
     }
 
-    public doPOST = () => {
-
+    public doPOST = (url: string, postdata?: any, token?: string) => {
+        try {
+            return axios.post(url, postdata, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': token !== undefined ? 'Bearer ' +  token : ''
+                }
+            });
+        } catch (error) {
+            console.error(error)
+        }
     }
 
     public doUPDATE = () => {

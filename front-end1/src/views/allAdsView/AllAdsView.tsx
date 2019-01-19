@@ -14,6 +14,7 @@ interface IState {
     advertisements: Advertisement[];
     categories: Category[];
     filter: FilterObject;
+    error?: string;
 }
 
 export default class AllAdsView extends React.Component<any, IState> {
@@ -27,7 +28,7 @@ export default class AllAdsView extends React.Component<any, IState> {
                 searchFilter: null,
                 availableFilter: false,
                 categoryFilter: null
-            }
+            }            
         }
     }
 
@@ -48,6 +49,7 @@ export default class AllAdsView extends React.Component<any, IState> {
                 <Header />
                 <div className='container'>
                     <FilterManager filter={this.state.filter} categories={this.state.categories} updateFunc={this.updateFilter.bind(this)} />
+                    {this.state.error ? <h1 className='error'> {this.state.error} </h1> : <> </>}
                     <AdvertisementList pageLimit={10} advertisements={this.state.advertisements} />
                 </div>
             </div>
@@ -76,46 +78,51 @@ export default class AllAdsView extends React.Component<any, IState> {
 
 
     private loadAdsFromServer = () => {
+        let token: string | null = localStorage.getItem('token');
+        console.log('token', token);
+        if (token !== null) {
+            RequestService.doGET(getAdsUrl, undefined, undefined, token)!!
+                .then((res: any) => {
+                    let data: Advertisement[] = res.data;
+                    const filter: FilterObject = this.state.filter;
 
-        RequestService.doGET(getAdsUrl,undefined,undefined,'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjciLCJuYmYiOjE1NDc5MDI4MDMsImV4cCI6MTU0ODE2MjAwMywiaWF0IjoxNTQ3OTAyODAzfQ.AaD4DjkwaCG0cW5ebdg-WGis5pWIFdFESFP0RiMBMl4')!!
-            .then((res: any) => {
-                let data: Advertisement[] = res.data;
-                const filter: FilterObject = this.state.filter;
+                    if (filter.searchFilter) {
+                        data = data.filter((ad) => {
+                            if (ad.title != undefined) {
+                                return ad.title.includes(filter.searchFilter!!)
+                            }
+                            return false;
+                        })
+                    }
+            
+                    if (filter.categoryFilter) {
+                        data = data.filter((ad) => {
+                            if (ad.category != undefined) {
+                                return ad.category === filter.categoryFilter;
+                            }
+                            return false;
+                        })
+                    }
+            
+                    if (filter.availableFilter) {
+                        data = data.filter((ad) => {
+                            if (ad.tool != undefined) {
+                                return ad.tool.isAvailable === true;
+                            }
+                            return false;
+                        })
+                    }
+            
+            
+                    this.setState({ advertisements: data });
 
-                if (filter.searchFilter) {
-                    data = data.filter((ad) => {
-                        if (ad.title != undefined) {
-                            return ad.title.includes(filter.searchFilter!!)
-                        }
-                        return false;
-                    })
-                }
-        
-                if (filter.categoryFilter) {
-                    data = data.filter((ad) => {
-                        if (ad.category != undefined) {
-                            return ad.category === filter.categoryFilter;
-                        }
-                        return false;
-                    })
-                }
-        
-                if (filter.availableFilter) {
-                    data = data.filter((ad) => {
-                        if (ad.tool != undefined) {
-                            return ad.tool.isAvailable === true;
-                        }
-                        return false;
-                    })
-                }
-        
-        
-                this.setState({ advertisements: data });
-
-            })
-            .catch((err)=>{
-                console.error(err);
-            })
+                })
+                .catch((err)=>{
+                    console.error(err);
+                })
+        } else {
+            this.setState({error: 'You must login to see all ads !'});
+        }
 
     }
 }
