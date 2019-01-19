@@ -37,11 +37,13 @@ export default class Header extends React.Component<IHeaderProps, IHeaderState> 
     }
 
     public render () {
+        const logoImage="/assets/images/OSC_Black.png";
         return (
             <header>
-                <div className='logo'>
-                    LOGO HERE
-                </div>
+                <a href={"/"}>
+
+                    <img src={logoImage} className='logo'/>
+                </a>
                 <div className='nav'>
                     {this.renderHeaderButton('Browse', "/all-ads", false)}
                     {this.renderHeaderButton('My Ads', "/my-ads", true)}

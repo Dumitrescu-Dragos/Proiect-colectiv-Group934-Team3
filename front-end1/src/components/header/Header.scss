@@ -5,9 +5,8 @@ header {
     background-color: $light-blue-color;
 
     .logo {
-        padding-bottom: 20px;
-        padding-top: 20px;
-        width: 50%;
+        padding: 0px;
+        height: 60px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -15,8 +14,9 @@ header {
 
     .nav {
         display: flex;
+        padding-right: 20px;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-end;
         width: 100%;
 
         .header-button {
