@@ -15,12 +15,16 @@ export default class Header extends React.Component<IHeaderProps, IHeaderState> 
         super(props);
     }
 
-    public renderHeaderButton = (label: string) => {
-        return (
-            <div className='header-button'>
-                {label}
-            </div>
-        );
+    public renderHeaderButton = (label: string, url:string, loggged: boolean) => {
+        var element = (<div></div>);
+        if(localStorage.getItem("token")!=null || loggged == false)
+        {
+            element = (<a href={url} className='header-button'><div>
+                    {label}
+                </div></a>
+                );
+        }
+        return element;
     }
 
     public renderLogOutButton = () =>{
@@ -39,9 +43,9 @@ export default class Header extends React.Component<IHeaderProps, IHeaderState> 
                     LOGO HERE
                 </div>
                 <div className='nav'>
-                    {this.renderHeaderButton('HeaderButton1')}
-                    {this.renderHeaderButton('HeaderButton2')}
-                    {this.renderHeaderButton('HeaderButton3')}
+                    {this.renderHeaderButton('Browse', "/all-ads", false)}
+                    {this.renderHeaderButton('My Ads', "/my-ads", true)}
+                    {this.renderHeaderButton('Profile', "/", true)}
                     {this.renderLogOutButton()}
                 </div>
             </header>
