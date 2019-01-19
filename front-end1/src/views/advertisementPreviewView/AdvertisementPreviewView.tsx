@@ -1,46 +1,61 @@
 import * as React from 'react';
 import './AdvertisementPreviewView.scss'
 import Header from './../../components/header/Header';
-import {Advertisement, Tool} from '../../common/Client';
+import Error from './../../components/error/Error';
+import {Advertisement, Tool, getAdsUrl} from '../../common/Client';
 import AdvertisementPreview from './../../components/advertismentPreview/AdvertisementPreview';
+import RequestService from '../../common/RequestService';
 
-interface IAdvertisementPreviewViewState {
-    ad: Advertisement;
+interface IAdvertisementPreviewViewProps {
+    id: number;
 }
 
-export default class MyAdsView extends React.Component<any, IAdvertisementPreviewViewState> {
+interface IAdvertisementPreviewViewState {
+    ad?: Advertisement;
+}
 
-    public constructor(props: any) {
+export default class MyAdsView extends React.Component<IAdvertisementPreviewViewProps, IAdvertisementPreviewViewState> {
+
+    public constructor(props: IAdvertisementPreviewViewProps) {
         super(props);
-        let tool: Tool = {
-            id: 1,
-            name: "Craftsman 9-41584 1/4",
-            isAvailable: true,
-            techSpec: "The tool has the following tech specs",
-            imageUrls: ["https://images-na.ssl-images-amazon.com/images/I/61i5G6kx3CL._SL1500_.jpg"]
-        }
         this.state={
-            ad: {
-                id: 1,
-                title: "ad 1",
-                description: "description for ad 1",
-                type: "hobby",
-                tool: tool,
-                ownersName: "gigi",
-                category: undefined,
-                periodOfTime: 100,
-                rentalConditions: "da",
-                returnRequirements: "da"
-            }
+            ad: undefined
+        };
+    }
+
+    public componentDidMount () {
+        let token: string | null = localStorage.getItem('token');
+        if (token) {
+            RequestService.doGET(getAdsUrl + '/' + 3, undefined, undefined, token)!!
+            .then((res) => {
+                console.log(res);
+                let tool: Tool = res.data;
+                console.log(tool);
+               // this.setState({ad: tool});
+            })
+            .catch((err) => {
+                console.log(err);
+            });
         }
     }
 
     public render() {
+
+        let token: string | null = localStorage.getItem('token');
+        if (! token) {
+            return (
+                <Error title='Unauthorized' value='User must be logged in to preview an ad !' />
+            );
+        }
+
         return (
             <div>
                 <Header />
                 <div className='container'>
-                    <AdvertisementPreview data={this.state.ad}/>
+                    {this.state.ad ? 
+                        <AdvertisementPreview data={this.state.ad}/> :
+                        <Error title='Invalid Ad' value='Something went wrong. Ad was not found.' />
+                    }
                 </div>
             </div>
         );
