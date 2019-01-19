@@ -4,6 +4,7 @@ export type Genders = 'male' | 'female' | 'other';
 
 const baseUrl: string = 'https://localhost:44331/api';
 export const getAdsUrl: string = baseUrl + "/Advertisements" ;
+export const addAdsUrl: string = baseUrl + "/Advertisements"
 export const getCategoriesUrl: string = baseUrl + "/categories";
 /**
  * Dtos

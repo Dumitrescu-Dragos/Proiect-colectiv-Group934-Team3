@@ -8,6 +8,7 @@ import LandingPage from './views/landingPage/LandingPage';
 import AllAdsView from './views/allAdsView/AllAdsView';
 import MyAdsView from './views/myAdsView/MyAdsView';
 import NotFound from './views/notFoundView/NotFoundView';
+import AddAdsView from './views/addAdsView/AddAdsView';
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
             <Route exact path='/' component={LandingPage} />
             <Route exact path='/all-ads' component={AllAdsView} />
             <Route exact path='/my-ads' component={MyAdsView} />
+			<Route exact path='/add-ads' component={AddAdsView} />
             <Route component={NotFound} />
           </Switch>
         </>
