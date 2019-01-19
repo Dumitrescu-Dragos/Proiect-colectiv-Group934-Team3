@@ -1,6 +1,6 @@
 import * as React from 'react';
 import "./AllAdsView.scss";
-import { Advertisement, Category, Tool } from '../../common/Client';
+import { Advertisement, Category, Tool, getAdsUrl } from '../../common/Client';
 import Header from './../../components/header/Header';
 import AdvertisementList from './../../components/advertisementList/AdvertisementList';
 import FilterManager from '../../components/filterManager/FilterManager';
@@ -57,7 +57,7 @@ export default class AllAdsView extends React.Component<any, IState> {
     private loadCategories = () => {
         RequestService.doGET(getCategoriesUrl)!!
             .then((res) => {
-                console.log("Category!");
+                console.log("Category!", res);
                 const categories: Category[] = res.data;
                 this.setState({
                     categories: categories
@@ -76,66 +76,46 @@ export default class AllAdsView extends React.Component<any, IState> {
 
 
     private loadAdsFromServer = () => {
-        let data: Advertisement[] = [];
-        const filter: FilterObject = this.state.filter;
 
-        let tools: Tool[] = [{
-            id: 1,
-            name: "Craftsman 9-41584 1/4",
-            isAvailable: true,
-            techSpec: "The tool has the following tech specs",
-            imageUrls: ["https://images-na.ssl-images-amazon.com/images/I/61i5G6kx3CL._SL1500_.jpg"]
-        },
-        {
-            id: 2,
-            name: "Dalluge 7180",
-            isAvailable: false,
-            techSpec: "16 Ounce Titanium Hammer",
-            imageUrls: ["https://res.cloudinary.com/outcastdevs/image/upload/v1546370836/71YBKac64BL._SX425_.jpg"]
-        }];
+        RequestService.doGET(getAdsUrl,undefined,undefined,'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjciLCJuYmYiOjE1NDc5MDI4MDMsImV4cCI6MTU0ODE2MjAwMywiaWF0IjoxNTQ3OTAyODAzfQ.AaD4DjkwaCG0cW5ebdg-WGis5pWIFdFESFP0RiMBMl4')!!
+            .then((res: any) => {
+                let data: Advertisement[] = res.data;
+                const filter: FilterObject = this.state.filter;
 
-        let types: string[] = ["Hobby", "Professional"];
-
-        for (let i = 0; i < 97; i++) {
-            let element: Advertisement = {
-                id: i,
-                title: "Title - a resource " + i,
-                category: this.state.categories[i % 3],
-                type: types[i % 2],
-                tool: tools[i % 2],
-                description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut felis sem, bibendum sit amet ornare eu, tincidunt vitae lectus. Etiam condimentum, massa in venenatis tristique, tellus ligula feugiat nisi, sit amet lacinia nisi odio et justo. Proin placerat lorem sed quam maximus accumsan. Curabitur rhoncus maximus urna.",
-            }
-            data.push(element);
-        }
-
-        if (filter.searchFilter) {
-            data = data.filter((ad) => {
-                if (ad.title != undefined) {
-                    return ad.title.includes(filter.searchFilter!!)
+                if (filter.searchFilter) {
+                    data = data.filter((ad) => {
+                        if (ad.title != undefined) {
+                            return ad.title.includes(filter.searchFilter!!)
+                        }
+                        return false;
+                    })
                 }
-                return false;
-            })
-        }
-
-        if (filter.categoryFilter) {
-            data = data.filter((ad) => {
-                if (ad.category != undefined) {
-                    return ad.category === filter.categoryFilter;
+        
+                if (filter.categoryFilter) {
+                    data = data.filter((ad) => {
+                        if (ad.category != undefined) {
+                            return ad.category === filter.categoryFilter;
+                        }
+                        return false;
+                    })
                 }
-                return false;
-            })
-        }
-
-        if (filter.availableFilter) {
-            data = data.filter((ad) => {
-                if (ad.tool != undefined) {
-                    return ad.tool.isAvailable === true;
+        
+                if (filter.availableFilter) {
+                    data = data.filter((ad) => {
+                        if (ad.tool != undefined) {
+                            return ad.tool.isAvailable === true;
+                        }
+                        return false;
+                    })
                 }
-                return false;
+        
+        
+                this.setState({ advertisements: data });
+
             })
-        }
+            .catch((err)=>{
+                console.error(err);
+            })
 
-
-        this.setState({ advertisements: data });
     }
 }
