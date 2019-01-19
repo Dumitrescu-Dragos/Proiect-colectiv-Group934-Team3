@@ -10,6 +10,7 @@ import MyAdsView from './views/myAdsView/MyAdsView';
 import NotFound from './views/notFoundView/NotFoundView';
 import AddAdsView from './views/addAdsView/AddAdsView';
 import AdPreview from './views/advertisementPreviewView/AdvertisementPreviewView';
+import LogoutPage from './views/logout/Logout';
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
         <>
           <Switch>
             <Route exact path='/' component={LandingPage} />
+              <Route exact path='/logout' component={LogoutPage} />
             <Route exact path='/all-ads' component={AllAdsView} />
             <Route exact path='/my-ads' component={MyAdsView} />
 			<Route exact path='/add-ads' component={AddAdsView} />

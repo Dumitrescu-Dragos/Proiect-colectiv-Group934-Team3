@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Select from '../select/Select';
 import './Form.scss';
-//import {GoogleComponent} from 'react-google-location';
+//import '../../../node_modules/react-google-location/';
 
 export interface IFormField {
     key: string;

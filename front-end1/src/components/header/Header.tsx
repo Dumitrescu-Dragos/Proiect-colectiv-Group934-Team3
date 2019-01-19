@@ -23,6 +23,15 @@ export default class Header extends React.Component<IHeaderProps, IHeaderState> 
         );
     }
 
+    public renderLogOutButton = () =>{
+        var element = (<h1>Logged out</h1>);
+        if(localStorage.getItem("token")!=null)
+        {
+            element = (<a href='/logout'>Logout</a>);
+        }
+        return element;
+    }
+
     public render () {
         return (
             <header>
@@ -33,6 +42,7 @@ export default class Header extends React.Component<IHeaderProps, IHeaderState> 
                     {this.renderHeaderButton('HeaderButton1')}
                     {this.renderHeaderButton('HeaderButton2')}
                     {this.renderHeaderButton('HeaderButton3')}
+                    {this.renderLogOutButton()}
                 </div>
             </header>
         );
