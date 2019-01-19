@@ -36,7 +36,7 @@ export let RegisterForm:JSX.Element =
                 console.log(element);
             });
             var invite:string = '';
-            var address: Address = {id:0, addressDetails:'', city:'', country:'', longitude:0, latitude:0};
+            var address: Address = {addressId:0, addressString:'', city:'', country:'', longitude:0, latitude:0};
             var userregister:UserRegister = {email: '', password:'', firstName:'', lastName:'', gender:0, DOB:'', phoneNumber:'', address: address};
             formData.forEach(element => {
                 switch (element.key) {
@@ -47,7 +47,7 @@ export let RegisterForm:JSX.Element =
                     case "lastName": userregister.lastName = element.value; break;
                     case "birthdate": userregister.DOB = element.value; break;
                     case "phone": userregister.phoneNumber = element.value; break;
-                    case "address": address.addressDetails = element.value; break;
+                    case "address": address.addressString = element.value; break;
                     case "gender": if(element.value=="Male") userregister.gender = 0; if(element.value=="Female") userregister.gender = 1; if(element.value=="Other") userregister.gender = 2; break;
                 }
             });

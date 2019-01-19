@@ -11,8 +11,8 @@ export const getCategoriesUrl: string = baseUrl + "/categories"
  * Dtos
  */
 export interface Address{
-    id: number;
-    addressDetails?: string;
+    addressId: number;
+    addressString?: string;
     city?: string;
     country?: string;
     longitude?: number;
