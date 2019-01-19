@@ -36,7 +36,7 @@ export let RegisterForm:JSX.Element =
                 console.log(element);
             });
             var invite:string = '';
-            var address: Address = {addressId:0, addressString:'', city:'', country:'', longitude:0, latitude:0};
+            var address: Address = {addressId:0, addressString:'', city:'Cluj-Napoca', country:'Romania', longitude:23, latitude:46};
             var userregister:UserRegister = {email: '', password:'', firstName:'', lastName:'', gender:0, DOB:'', phoneNumber:'', address: address};
             formData.forEach(element => {
                 switch (element.key) {
@@ -63,17 +63,11 @@ export let RegisterForm:JSX.Element =
             })
                 .then(res => {
                     if (res.ok) {
-                        return res.json();
+                        console.log("registered");
                     } else {
                         console.log("not registered\n");
                         throw Error(res.statusText);
                     }
-                })
-                .then(json => {
-                    localStorage.setItem('token', json.toString());
-                    console.log("registered\n");
-                    //this.props.history.push("/my-ads");
-                    //return <Redirect to={'/my-ads'}/>
                 })
                 .catch(error => console.error(error));
 

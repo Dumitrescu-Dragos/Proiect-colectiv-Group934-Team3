@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Select from '../select/Select';
 import './Form.scss';
+//import Geosuggest from 'react-geosuggest';
 //import '../../../node_modules/react-google-location/';
 
 export interface IFormField {
@@ -117,6 +118,13 @@ export default class Form extends React.Component<IFormProps, IFormState> {
                     }} 
                 />;
         }
+        /*
+        if(formField.key === 'address'){
+            var Geosuggest = require('react-geosuggest').default;
+            inputComponent = <Geosuggest
+                placeholder="Address"
+                initialValue="Cluj-Napoca"/>
+        }*/
 
         return (
             <div className='form-field' key={this.props.title + '-' + formField.key}>
