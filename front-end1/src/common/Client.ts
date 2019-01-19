@@ -3,6 +3,7 @@ import { string } from "prop-types";
 export type Genders = 'male' | 'female' | 'other';
 
 const baseUrl: string = 'https://localhost:44331/api';
+export const registerURL: string = baseUrl + "/Users/";
 export const loginURL: string = baseUrl + "/Users";
 export const getAdsUrl: string = baseUrl + "/advertisements/filters" ;
 export const getCategoriesUrl: string = baseUrl + "/categories"
@@ -21,6 +22,17 @@ export interface Address{
 export interface UserLogin {
     email?: string;
     password?: string;
+}
+
+export interface UserRegister{
+    email?: string;
+    password?: string;
+    firstName?: string;
+    lastName?: string;
+    gender?: Number;
+    DOB?: string;
+    phoneNumber?: string;
+    address?: Address;
 }
 
 export interface User{

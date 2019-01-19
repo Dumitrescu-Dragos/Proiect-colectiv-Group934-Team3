@@ -9,7 +9,7 @@ import AllAdsView from './views/allAdsView/AllAdsView';
 import MyAdsView from './views/myAdsView/MyAdsView';
 import NotFound from './views/notFoundView/NotFoundView';
 import AddAdsView from './views/addAdsView/AddAdsView';
-import AdPreview from './views/advertisementPreviewView';
+import AdPreview from './views/advertisementPreviewView/AdvertisementPreviewView';
 
 class App extends Component {
   render() {
