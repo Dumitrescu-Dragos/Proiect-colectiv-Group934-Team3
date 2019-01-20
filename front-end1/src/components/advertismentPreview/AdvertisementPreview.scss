@@ -57,6 +57,9 @@ $material-icons-font-path: '~material-icons/iconfont/';
       color: $medium-blue-color;
       font-size: 20px;
       flex: 1;
+      margin-top: 15px;
+      margin-bottom: 25px;
+
       .ad-category{
 
       }
@@ -79,11 +82,13 @@ $material-icons-font-path: '~material-icons/iconfont/';
     }
 
     .ad-status{
-      position: absolute;
-      top: 15px;
-      right: 10px;
+      // position: absolute;
+      // top: 15px;
+      // right: 10px;
       font-size: 20px;
       vertical-align: center;
+
+      padding: 5px;
 
       .unavailable{
         color: $red-color;
@@ -97,12 +102,20 @@ $material-icons-font-path: '~material-icons/iconfont/';
         transform: translateY(20%);
         margin: 0 5px;
       }
+
+      transition: 0.3s ease;
+    }
+
+    .ad-status:hover {
+      background-color: lightgray;
     }
 
     .ad-rental-period{
-      position: absolute;
-      bottom: 15px;
-      right: 15px;
+      // position: absolute;
+      // bottom: 15px;
+      // right: 15px;
+      margin-top: 25px;
+      margin-bottom: 15px;
       color: $light-gray;
       .number-of-days{
         color: $dark-blue-color;

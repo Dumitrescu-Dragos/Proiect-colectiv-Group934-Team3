@@ -2,7 +2,7 @@ import * as React from 'react';
 import './AdvertisementPreviewView.scss'
 import Header from './../../components/header/Header';
 import Error from './../../components/error/Error';
-import {Advertisement, Tool, getAdsUrl} from '../../common/Client';
+import {Advertisement, Tool, getAdsUrl, putTool} from '../../common/Client';
 import AdvertisementPreview from './../../components/advertismentPreview/AdvertisementPreview';
 import RequestService from '../../common/RequestService';
 import { withRouter } from 'react-router-dom';
@@ -18,6 +18,7 @@ class MyAdsView extends React.Component<any, IAdvertisementPreviewViewState> {
     public constructor(props: any) {
         super(props);
         const {location} = this.props;
+        console.log(location);
         this.state={
             ad: location.state
         };
@@ -53,7 +54,24 @@ class MyAdsView extends React.Component<any, IAdvertisementPreviewViewState> {
                 <Header />
                 <div className='container'>
                     {this.state.ad ? 
-                        <AdvertisementPreview data={this.state.ad}/> :
+                        <AdvertisementPreview data={this.state.ad} updateStatusClick={() => {
+                            if (this.state.ad && token && this.state.ad.tool) {
+                                let ad: Advertisement = this.state.ad;
+                                if (ad.tool) {
+                                    ad.tool.isAvailable = ! ad.tool.isAvailable;
+                                    RequestService.doUPDATE(putTool + '/' + ad.tool.toolId, {
+                                        "ToolId": ad.tool.toolId,
+                                        "Name": ad.tool.name,
+                                        "TechSpecs": ad.tool.techSpec,
+                                        "IsAvailable": ad.tool.isAvailable
+                                    }, token)!!
+                                    .then((res) => {
+                                        this.setState({ad: ad});
+                                    });
+                                }
+
+                            }
+                        }}/> :
                         <Error title='Invalid Ad' value='Something went wrong. Ad was not found.' />
                     }
                 </div>

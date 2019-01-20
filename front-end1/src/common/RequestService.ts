@@ -20,7 +20,7 @@ export default class RequestService {
         }
     }
 
-    public doPOST = (url: string, postdata?: any, token?: string) => {
+    static doPOST = (url: string, postdata?: any, token?: string) => {
         try {
             return axios.post(url, postdata, {
                 headers: {
@@ -33,8 +33,17 @@ export default class RequestService {
         }
     }
 
-    public doUPDATE = () => {
-
+    static doUPDATE = (url: string, postdata?: any, token?: string) => {
+        try {
+            return axios.put(url, postdata, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': token !== undefined ? 'Bearer ' +  token : ''
+                }
+            });
+        } catch (error) {
+            console.error(error)
+        }
     }
 
     public doDELETE = () => {
