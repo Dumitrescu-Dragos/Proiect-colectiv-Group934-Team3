@@ -34,7 +34,7 @@ const advertismentCard = (props: IProps) => {
                      }
                 </div>
                 <div className="card-rental-period">
-                    Rental period: <span className="number-of-days">{advertisement.periodOfTime ? advertisement.periodOfTime + " days" : "unspecified"}</span>
+                    Rental period: <span className="number-of-days">{advertisement.periodOfTime ? advertisement.periodOfTime : "unspecified"}</span>
                 </div>
             </div>
         </div>
