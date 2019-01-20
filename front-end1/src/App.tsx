@@ -24,7 +24,7 @@ class App extends Component {
               <Route exact path='/logout' component={LogoutPage} />
             <Route exact path='/all-ads' component={AllAdsView} />
             <Route exact path='/my-ads' component={MyAdsView} />
-			<Route exact path='/add-ads' component={AddAdsView} />
+			      <Route exact path='/add-ads' component={AddAdsView} />
             <Route exact path='/ad-preview' component={AdPreview}/>
               <Route exact path='/profile' component={ProfileView}/>
             <Route component={NotFound} />

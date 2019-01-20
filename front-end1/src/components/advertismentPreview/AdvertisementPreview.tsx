@@ -14,7 +14,7 @@ const advertisementPreview = (props: IProps) => {
     return (
         <div className="advertisement-preview">
             <div className="ad-image">
-                <img src={ tool!== undefined && tool.imageUrls !== undefined && tool.imageUrls.length > 0 ? tool.imageUrls[0] : placeholderImage}/>
+                <img src={ tool!== undefined && tool.images !== undefined && tool.images.length > 0 ? tool.images[0].imageUrl : placeholderImage}/>
             </div>
             <div className="ad-content">
                 <h2 className="ad-title">{advertisement.title}</h2>

@@ -50,10 +50,15 @@ export default class AllAdsView extends React.Component<any, IState> {
                 <div className='container'>
                     <FilterManager filter={this.state.filter} categories={this.state.categories} updateFunc={this.updateFilter.bind(this)} />
                     {this.state.error ? <h1 className='error'> {this.state.error} </h1> : <> </>}
-                    <AdvertisementList pageLimit={10} advertisements={this.state.advertisements} />
+                    <AdvertisementList pageLimit={10} advertisements={this.state.advertisements} clickAdMethod={this.clickAdHandler}/>
                 </div>
             </div>
         );
+    }
+
+    private clickAdHandler = (ad: Advertisement) =>{
+        console.log(ad);
+        this.props.history.push('/ad-preview');
     }
 
     private loadCategories = () => {
@@ -98,7 +103,7 @@ export default class AllAdsView extends React.Component<any, IState> {
                     if (filter.categoryFilter) {
                         data = data.filter((ad) => {
                             if (ad.category != undefined) {
-                                return ad.category === filter.categoryFilter;
+                                return ad.category.name === filter.categoryFilter;
                             }
                             return false;
                         })

@@ -50,7 +50,7 @@ class FilterManager extends React.Component<IProps, IState> {
                             <select className="input-field" onChange={this.categoryChangeHandler}>
                                 <option value="-1">All categories</option>
                                 {this.props.categories.map(c => {
-                                    return <option value={c.id} key={c.id}>{c.name}</option>
+                                    return <option value={c.categoryId} key={c.categoryId}>{c.name}</option>
                                 })}
                             </select>
                         </div>
@@ -76,17 +76,16 @@ class FilterManager extends React.Component<IProps, IState> {
 
     private categoryChangeHandler = (event: any) => {
         const categoryId: number = event.target.value;
-        let category: Category | undefined = this.props.categories.find(cat=>cat.id == categoryId);
+        let category: Category | undefined = this.props.categories.find(cat=>cat.categoryId == categoryId);
         const filterCopy = {...this.state.filter}
-        if(category != undefined){
-            filterCopy.categoryFilter = category;
+        if(category != undefined && category.name !== undefined){
+            filterCopy.categoryFilter = category.name;
         }else{
             filterCopy.categoryFilter = null;
         }
         this.setState({
             filter: filterCopy
         })
-
     }
 
     private availableChangeHandler = () =>{

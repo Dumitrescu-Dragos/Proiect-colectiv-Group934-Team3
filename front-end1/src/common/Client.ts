@@ -50,7 +50,7 @@ export interface User{
 }
 
 export interface Category{
-    id: number;
+    categoryId: number;
     name?: string;
     description?: string;
 }
@@ -60,7 +60,7 @@ export interface Tool{
     name?: string;
     techSpec?: string;
     isAvailable?: boolean;
-    imageUrls?: string[]; 
+    images?: { imageUrl: string}[]; 
 }
 
 export interface Advertisement{
@@ -84,7 +84,7 @@ export interface DistanceObject{
 
 export interface FilterObject {
     searchFilter: string | null;
-    categoryFilter: Category | null;
+    categoryFilter: string | null;
     availableFilter: boolean;
     distanceFilter?: DistanceObject;
 }

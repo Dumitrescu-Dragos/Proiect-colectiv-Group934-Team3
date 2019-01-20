@@ -4,6 +4,7 @@ import { Advertisement, Tool } from '../../common/Client';
 
 interface IProps{
     data: Advertisement
+    clickMethod: any
 }
 
 const advertismentCard = (props: IProps) => {
@@ -12,9 +13,9 @@ const advertismentCard = (props: IProps) => {
     const placeholderImage="./../../../../../assets/images/placeholder-image.jpg";
 
     return (
-        <div className="advertisement-card">
+        <div className="advertisement-card" onClick={props.clickMethod}>
             <div className="card-image">
-                <img src={ tool!== undefined && tool.imageUrls !== undefined && tool.imageUrls.length > 0 ? tool.imageUrls[0] : placeholderImage}/>
+                <img src={ tool!== undefined && tool.images !== undefined && tool.images.length > 0 ? tool.images[0].imageUrl : placeholderImage}/>
             </div>
             <div className="card-content">
                 <h2 className="card-title">{advertisement.title}</h2>
