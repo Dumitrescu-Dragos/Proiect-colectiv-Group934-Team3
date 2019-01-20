@@ -58,7 +58,7 @@ export default class AllAdsView extends React.Component<any, IState> {
 
     private clickAdHandler = (ad: Advertisement) =>{
         console.log(ad);
-        this.props.history.push('/ad-preview');
+        this.props.history.push('/ad-preview', {...ad});
     }
 
     private loadCategories = () => {

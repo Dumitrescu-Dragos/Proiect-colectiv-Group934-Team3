@@ -5,38 +5,38 @@ import Error from './../../components/error/Error';
 import {Advertisement, Tool, getAdsUrl} from '../../common/Client';
 import AdvertisementPreview from './../../components/advertismentPreview/AdvertisementPreview';
 import RequestService from '../../common/RequestService';
-
-interface IAdvertisementPreviewViewProps {
-    id: number;
-}
+import { withRouter } from 'react-router-dom';
 
 interface IAdvertisementPreviewViewState {
     ad?: Advertisement;
 }
 
-export default class MyAdsView extends React.Component<IAdvertisementPreviewViewProps, IAdvertisementPreviewViewState> {
+class MyAdsView extends React.Component<any, IAdvertisementPreviewViewState> {
 
-    public constructor(props: IAdvertisementPreviewViewProps) {
+
+
+    public constructor(props: any) {
         super(props);
+        const {location} = this.props;
         this.state={
-            ad: undefined
+            ad: location.state
         };
     }
 
     public componentDidMount () {
-        let token: string | null = localStorage.getItem('token');
-        if (token) {
-            RequestService.doGET(getAdsUrl + '/' + 3, undefined, undefined, token)!!
-            .then((res) => {
-                console.log(res);
-                let tool: Tool = res.data;
-                console.log(tool);
-               // this.setState({ad: tool});
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-        }
+        // let token: string | null = localStorage.getItem('token');
+        // if (token) {
+        //     RequestService.doGET(getAdsUrl + '/' + 3, undefined, undefined, token)!!
+        //     .then((res) => {
+        //         console.log(res);
+        //         let tool: Tool = res.data;
+        //         console.log(tool);
+        //        // this.setState({ad: tool});
+        //     })
+        //     .catch((err) => {
+        //         console.log(err);
+        //     });
+        // }
     }
 
     public render() {
@@ -62,3 +62,5 @@ export default class MyAdsView extends React.Component<IAdvertisementPreviewView
     }
 
 }
+
+export default withRouter(MyAdsView);
