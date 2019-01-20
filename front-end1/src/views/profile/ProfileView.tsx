@@ -46,7 +46,7 @@ export default class ProfileView extends React.Component<any, IState> {
                 <div className='profile-container'>
                     <div className='profile-image-container'>{this.renderImage()}</div>
                     <div className='profile-details-container'>
-                        <p><b> {this.state.user.firstName}</b> <b>{this.state.user.lastName}</b></p>
+                        <p className="profile-name"><b> {this.state.user.firstName}</b> <b>{this.state.user.lastName}</b></p>
                         <p><b>Email :</b> {this.state.user.email}</p>
                         <p><b>Birth date :</b> {this.state.user.dateOfBirth!!.slice(0,10)}</p>
                         <p><b>Phone :</b> {this.state.user.phoneNumber}</p>

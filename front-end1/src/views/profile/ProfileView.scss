@@ -7,13 +7,25 @@
         padding: 0 15px;
         max-width: 1050px;
         margin: 20px auto;
+        background: #ffff;
+        padding: 15px;
+        border-radius: 10px;
+        border: 1px solid #dddddd;
+        box-shadow: 0 2px 3px #cccccc;
+
         p{
             display: block;
+            font-size: 1.5rem;
         }
+
+        .profile-name{
+            font-size: 2rem;
+        }
+
         .user-image{
             width:300px;
             height: 300px;
-            margin-right: 25px;
+            margin-right: 100px;
         }
     }
 }
