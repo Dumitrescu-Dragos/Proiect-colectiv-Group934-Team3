@@ -1,13 +1,23 @@
 @import './../../theme.scss';
 
+body{
+  background: $lightest-gray;
+}
+
 .landing-page {
+  
+  height: 100%;
+
   .container{
     display: flex;
     align-items: stretch;
     max-width: 1050px;
     margin: 30px auto;
-    background: #77f1fa; 
     padding: 50px;
+    border-radius: 10px;
+    background: $white-color;
+    border: 1px solid $light-gray;
+    box-shadow: 0 2px 3px $lighter-gray;
 
   .geosuggest__suggests--hidden {
     max-height: 0;

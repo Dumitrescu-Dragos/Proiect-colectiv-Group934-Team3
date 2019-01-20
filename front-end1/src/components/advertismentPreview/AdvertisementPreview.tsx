@@ -47,6 +47,9 @@ const advertisementPreview = (props: IProps) => {
                 <div className="ad-return-requirements">
                     Return requirements: {advertisement.returnRequirements}
                 </div>
+                <div className="phone-number">
+                    Phone-number: {advertisement.owner !== undefined ? advertisement.owner.phoneNumber : "-" }
+                </div>
                 <div className="ad-rental-period">
                     Rental period: <span className="number-of-days">{advertisement.periodOfTime ? advertisement.periodOfTime + " days" : "unspecified"}</span>
                 </div>
