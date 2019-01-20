@@ -28,7 +28,7 @@ export default class Header extends React.Component<IHeaderProps, IHeaderState> 
     }
 
     public renderLogOutButton = () =>{
-        var element = (<h1>Logged out</h1>);
+        var element = null;
         if(localStorage.getItem("token")!=null)
         {
             element = (<a href='/logout' className='logout-button'>Logout</a>);

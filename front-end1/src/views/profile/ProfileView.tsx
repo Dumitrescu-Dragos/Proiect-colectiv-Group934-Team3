@@ -21,7 +21,7 @@ export default class ProfileView extends React.Component<any, IState> {
         super(props);
         this.state = {
             //address: {addressId:0, addressString:'', city:'Cluj-Napoca', country:'Romania', longitude:23, latitude:46},
-            user: {id:0, email: '', password:'', firstName:'', lastName:'', gender:"male", DOB:'', phoneNumber:'', address: {addressId:0, addressString:'', city:'Cluj-Napoca', country:'Romania', longitude:23, latitude:46}}
+            user: {id:0, email: '', password:'', firstName:'', lastName:'', gender:"male", dateOfBirth:'', phoneNumber:'', address: {addressId:0, addressString:'', city:'Cluj-Napoca', country:'Romania', longitude:23, latitude:46}}
 
         }
     }
@@ -38,7 +38,7 @@ export default class ProfileView extends React.Component<any, IState> {
                     <p>Email : {this.state.user.email}</p>
                     <p>First name : {this.state.user.firstName}</p>
                     <p>Last name : {this.state.user.lastName}</p>
-                    <p>Birth date : {this.state.user.DOB}</p>
+                    <p>Birth date : {this.state.user.dateOfBirth!!.slice(0,10)}</p>
                     <p>Gender : {this.state.user.gender}</p>
                     <p>Phone : {this.state.user.phoneNumber}</p>
                 </div>
