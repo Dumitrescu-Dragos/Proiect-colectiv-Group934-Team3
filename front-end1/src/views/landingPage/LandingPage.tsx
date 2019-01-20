@@ -17,10 +17,9 @@ export default class LandingPage extends React.Component<ILandingPageProps, ILan
         super(props);
     }
 
-    public renderAuthorization = () =>{
+    public renderAuthorization = () => {
         var element = (<div></div>);
-        if(localStorage.getItem("token")==null)
-        {
+        if (localStorage.getItem("token") == null) {
             element = (
                 <div className='right landing-page-dialog'>
                     <AuthenticationView />
@@ -35,9 +34,11 @@ export default class LandingPage extends React.Component<ILandingPageProps, ILan
                 <Header />
                 <div className='container'>
                     <div className='left landing-page-content'>
-                        <h1> Hello there </h1>
-                        <h3> Welcome to OSC </h3>
-                        <p> OSC is a magnificent web application that is designed for a small, honest group of users. It helps its users find certain tools nearby and rent them. Also OSC allows its users to share their own tools.</p>
+                        <div>
+                            <h1> Hello there </h1>
+                            <h3> Welcome to OSC </h3>
+                            <p> OSC is a magnificent web application that is designed for a small, honest group of users. It helps its users find certain tools nearby and rent them. Also OSC allows its users to share their own tools.</p>
+                        </div>
                     </div>
                     {this.renderAuthorization()}
                 </div>

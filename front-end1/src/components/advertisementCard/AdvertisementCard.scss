@@ -3,6 +3,7 @@ $material-icons-font-path: '~material-icons/iconfont/';
 @import '~material-icons/iconfont/material-icons.scss';
 
 .advertisement-card{
+    background: $white-color;
     display: flex;
     align-items: stretch;
     justify-content: space-between;

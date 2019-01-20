@@ -1,6 +1,11 @@
 @import './../../theme.scss';
 
 .landing-page {
+  .container{
+    display: flex;
+    align-items: stretch;
+    max-width: 1050px;
+    margin: 0 auto;
 
   .geosuggest__suggests--hidden {
     max-height: 0;
@@ -14,7 +19,7 @@
   }
 
   .landing-page-content {
-    padding-right: 40px;
+    margin-top: 2.5%;
 
     .landing-page-dialog {
       padding-left: 40px;
@@ -39,4 +44,5 @@
       color: gray;
     }
   }
+}
 }

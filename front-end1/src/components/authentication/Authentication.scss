@@ -17,10 +17,10 @@
             align-content: center;
             align-items: center;
             padding: 10px;
-            background-color: $light-blue-color;
+            background-color: $lightest-gray;
             cursor: pointer;
 
-            .sellected {
+            &.sellected {
                 background-color: $white-color;
             }
         }

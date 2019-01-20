@@ -19,7 +19,7 @@ let genderSelectProps: IFormDropDown =  {
 export let RegisterForm:JSX.Element = 
     <Form
         key = 'register-form'
-        title = 'Register'
+        title = ''
         fields = {[
             {key: 'inviteid', label: 'InviteID', type: 'text', placeholder: 'Given invite ID'},
             {key: 'email', label: 'Email', type: 'email', placeholder: 'email@example.com'},
@@ -83,7 +83,7 @@ export let RegisterForm:JSX.Element =
 export let LoginForm:JSX.Element = 
     <Form 
         key = 'login-form'
-        title = 'Login'
+        title = ''
         fields = {[
             {key: 'email', label: 'Email', type: 'email', placeholder: 'email'},
             {key: 'password', label: 'Password', type: 'password', placeholder: 'password'},

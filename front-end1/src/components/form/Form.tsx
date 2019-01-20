@@ -22,7 +22,7 @@ export interface FormData {
 }
 
 interface IFormProps {
-    title: string;
+    title?: string;
     fields: IFormField[];
     onSubmit: (formData: FormData[]) => void;
 }
@@ -157,7 +157,6 @@ export default class Form extends React.Component<IFormProps, IFormState> {
                 <div className='form-title'>
                     {this.props.title}
                 </div>
-                <hr />
                 <div className='from-field-container'>
                     {this.renderFromFields()}
                 </div>
