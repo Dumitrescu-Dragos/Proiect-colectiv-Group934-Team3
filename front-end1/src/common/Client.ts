@@ -44,7 +44,7 @@ export interface User{
     firstName?: string;
     lastName?: string;
     gender?: Genders;
-    DOB?: string;
+    dateOfBirth?: string;
     phoneNumber?: string;
     address?: Address;
 }
