@@ -9,6 +9,8 @@ export const getUserURL: string = baseUrl + "/Users/";
 export const getAdsUrl: string = baseUrl + "/advertisements" ;
 export const getmyAdsUrl: string = baseUrl + "/advertisements/myAds/" ;
 export const getCategoriesUrl: string = baseUrl + "/categories";
+export const putTool: string = baseUrl + "/tools";
+
 /**
  * Dtos
  */
@@ -56,7 +58,7 @@ export interface Category{
 }
 
 export interface Tool{
-    id: number;
+    toolId: number;
     name?: string;
     techSpec?: string;
     isAvailable?: boolean;
@@ -70,7 +72,7 @@ export interface Advertisement{
     type?: string;
     address?: Address;
     tool?: Tool;
-    ownersName?: string;
+    owner?: User;
     category?: Category;
     periodOfTime?: number;
     rentalConditions?: string;
