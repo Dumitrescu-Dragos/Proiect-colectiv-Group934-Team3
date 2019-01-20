@@ -10,14 +10,10 @@ $material-icons-font-path: '~material-icons/iconfont/';
   -moz-box-shadow: 0 2px 3px $light-gray;
   -webkit-box-shadow: 0 2px 3px $light-gray;
   box-shadow:  0 2px 3px $light-gray;
-  margin: 10px;
+  margin: 10px auto;
+  background: $white-color;
   padding: 15px;
   max-width: 1000px;
-
-  &:hover{
-    cursor: pointer;
-    background: $lightest-gray;
-  }
 
   .ad-image{
     background: $white-color;
@@ -79,6 +75,10 @@ $material-icons-font-path: '~material-icons/iconfont/';
 
     .ad-tool-spec{
       flex: 3;
+    }
+
+    .phone-number{
+      font-weight: 700;
     }
 
     .ad-status{

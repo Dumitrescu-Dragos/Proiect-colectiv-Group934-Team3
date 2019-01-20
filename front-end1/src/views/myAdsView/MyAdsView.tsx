@@ -39,8 +39,8 @@ export default class MyAdsView extends React.Component<any, IMyAdsViewState> {
 
     private clickAdHandler = (ad: Advertisement) =>{
         console.log(ad);
-        this.props.history.push('/ad-preview');
-    };
+        this.props.history.push('/ad-preview', {...ad});
+    }
     private loadAdsFromServer = () => {
         let token: string | null = localStorage.getItem('token');
         console.log('token', token);
