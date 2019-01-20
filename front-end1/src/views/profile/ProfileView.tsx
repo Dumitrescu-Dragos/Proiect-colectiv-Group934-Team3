@@ -30,17 +30,27 @@ export default class ProfileView extends React.Component<any, IState> {
         this.loadUserFromServer();
     }
 
+    public renderImage = ()=>{
+        const malePath="/assets/images/male-user.jpg";
+        const femalePath="/assets/images/female-user.jpg";
+        var userImage = (<img src={malePath} className={"user-image"}></img>);
+        if(this.state.user.gender == "female")
+            userImage = (<img src={femalePath} className={"user-image"}></img>);
+        return userImage;
+    }
+
     public render() {
         return (
             <div className="profile">
                 <Header />
-                <div className='container'>
-                    <p>Email : {this.state.user.email}</p>
-                    <p>First name : {this.state.user.firstName}</p>
-                    <p>Last name : {this.state.user.lastName}</p>
-                    <p>Birth date : {this.state.user.DOB}</p>
-                    <p>Gender : {this.state.user.gender}</p>
-                    <p>Phone : {this.state.user.phoneNumber}</p>
+                <div className='profile-container'>
+                    <div className='profile-image-container'>{this.renderImage()}</div>
+                    <div className='profile-details-container'>
+                        <p><b> {this.state.user.firstName}</b> <b>{this.state.user.lastName}</b></p>
+                        <p><b>Email :</b> {this.state.user.email}</p>
+                        <p><b>Birth date :</b> {this.state.user.DOB}</p>
+                        <p><b>Phone :</b> {this.state.user.phoneNumber}</p>
+                    </div>
                 </div>
             </div>
         );
