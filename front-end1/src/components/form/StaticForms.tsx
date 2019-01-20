@@ -66,13 +66,13 @@ export let RegisterForm:JSX.Element =
                 .then(res => {
                     if (res.ok) {
                         console.log("registered");
+                        window.location.reload();
                     } else {
                         console.log("not registered\n");
                         throw Error(res.statusText);
                     }
                 })
                 .catch(error => console.error(error));
-
         }}
     />;
 
