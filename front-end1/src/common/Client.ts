@@ -5,6 +5,7 @@ export type Genders = 'male' | 'female' | 'other';
 const baseUrl: string = 'https://localhost:44331/api';
 export const registerURL: string = baseUrl + "/Users/";
 export const loginURL: string = baseUrl + "/Users";
+export const getUserURL: string = baseUrl + "/Users/";
 export const getAdsUrl: string = baseUrl + "/advertisements" ;
 export const getCategoriesUrl: string = baseUrl + "/categories"
 /**
@@ -38,6 +39,7 @@ export interface UserRegister{
 export interface User{
     id: number;
     email?: string;
+    password?: string;
     firstName?: string;
     lastName?: string;
     gender?: Genders;

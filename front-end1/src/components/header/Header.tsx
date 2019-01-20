@@ -47,7 +47,7 @@ export default class Header extends React.Component<IHeaderProps, IHeaderState> 
                 <div className='nav'>
                     {this.renderHeaderButton('Browse', "/all-ads", false)}
                     {this.renderHeaderButton('My Ads', "/my-ads", true)}
-                    {this.renderHeaderButton('Profile', "/", true)}
+                    {this.renderHeaderButton('Profile', "/profile", true)}
                     {this.renderLogOutButton()}
                 </div>
             </header>

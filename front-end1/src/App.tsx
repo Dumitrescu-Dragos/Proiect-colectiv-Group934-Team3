@@ -11,6 +11,7 @@ import NotFound from './views/notFoundView/NotFoundView';
 import AddAdsView from './views/addAdsView/AddAdsView';
 import AdPreview from './views/advertisementPreviewView/AdvertisementPreviewView';
 import LogoutPage from './views/logout/Logout';
+import ProfileView from "./views/profile/ProfileView";
 
 class App extends Component {
   render() {
@@ -25,6 +26,7 @@ class App extends Component {
             <Route exact path='/my-ads' component={MyAdsView} />
 			<Route exact path='/add-ads' component={AddAdsView} />
             <Route exact path='/ad-preview' component={AdPreview}/>
+              <Route exact path='/profile' component={ProfileView}/>
             <Route component={NotFound} />
           </Switch>
         </>
