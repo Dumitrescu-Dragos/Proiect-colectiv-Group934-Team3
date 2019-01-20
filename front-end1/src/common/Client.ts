@@ -32,7 +32,7 @@ export interface UserRegister{
     firstName?: string;
     lastName?: string;
     gender?: Number;
-    DOB?: string;
+    dateOfBirth?: string;
     phoneNumber?: string;
     address?: Address;
 }
