@@ -1,6 +1,6 @@
 import * as React from 'react';
 import "./AllAdsView.scss";
-import { Advertisement, Category, Tool, getAdsUrl } from '../../common/Client';
+import { Advertisement, Category, Tool, getAdsUrl, getFiltersUrl } from '../../common/Client';
 import Header from './../../components/header/Header';
 import AdvertisementList from './../../components/advertisementList/AdvertisementList';
 import FilterManager from '../../components/filterManager/FilterManager';
@@ -91,32 +91,32 @@ export default class AllAdsView extends React.Component<any, IState> {
                     let data: Advertisement[] = res.data;
                     const filter: FilterObject = this.state.filter;
 
-                    // if (filter.searchFilter) {
-                    //     data = data.filter((ad) => {
-                    //         if (ad.title != undefined) {
-                    //             return ad.title.includes(filter.searchFilter!!)
-                    //         }
-                    //         return false;
-                    //     })
-                    // }
+                    if (filter.searchFilter) {
+                        data = data.filter((ad) => {
+                            if (ad.title != undefined) {
+                                return ad.title.toLowerCase().includes(filter.searchFilter!!.toLowerCase())
+                            }
+                            return false;
+                        })
+                    }
             
-                    // if (filter.categoryFilter) {
-                    //     data = data.filter((ad) => {
-                    //         if (ad.category != undefined) {
-                    //             return ad.category.name === filter.categoryFilter;
-                    //         }
-                    //         return false;
-                    //     })
-                    // }
+                    if (filter.categoryFilter) {
+                        data = data.filter((ad) => {
+                            if (ad.category != undefined) {
+                                return ad.category.name === filter.categoryFilter;
+                            }
+                            return false;
+                        })
+                    }
             
-                    // if (filter.availableFilter) {
-                    //     data = data.filter((ad) => {
-                    //         if (ad.tool != undefined) {
-                    //             return ad.tool.isAvailable === true;
-                    //         }
-                    //         return false;
-                    //     })
-                    // }
+                    if (filter.availableFilter) {
+                        data = data.filter((ad) => {
+                            if (ad.tool != undefined) {
+                                return ad.tool.isAvailable === true;
+                            }
+                            return false;
+                        })
+                    }
             
             
                     this.setState({ advertisements: data });
