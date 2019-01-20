@@ -7,6 +7,7 @@ import ReactPaginate from 'react-paginate';
 interface IProps {
     advertisements: Advertisement[];
     pageLimit: number;
+    clickAdMethod: any;
 }
 
 interface IState {
@@ -68,7 +69,7 @@ class AdvertisementList extends React.Component<IProps, IState>{
         return (
             <div className="main-ad-list">
                 <div className="ad-list">
-                    {this.state.currentPageAdvertisements.map(ad => (<AdvertisementCard key={ad.id} data={ad} />))}
+                    {this.state.currentPageAdvertisements.map(ad => (<AdvertisementCard key={ad.id} data={ad} clickMethod={this.props.clickAdMethod.bind(this, ad)}/>))}
                 </div>
                 {this.props.pageLimit < this.props.advertisements.length ? <div className="paginate">
                         <ReactPaginate previousLabel={"<< previous"}

@@ -59,7 +59,7 @@ export interface Tool{
     name?: string;
     techSpec?: string;
     isAvailable?: boolean;
-    imageUrls?: string[]; 
+    images?: { imageUrl: string}[]; 
 }
 
 export interface Advertisement{
