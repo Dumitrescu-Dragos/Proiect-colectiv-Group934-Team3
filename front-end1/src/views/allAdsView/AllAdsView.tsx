@@ -1,6 +1,6 @@
 import * as React from 'react';
 import "./AllAdsView.scss";
-import { Advertisement, Category, Tool, getAdsUrl } from '../../common/Client';
+import { Advertisement, Category, Tool, getAdsUrl, getFiltersUrl } from '../../common/Client';
 import Header from './../../components/header/Header';
 import AdvertisementList from './../../components/advertisementList/AdvertisementList';
 import FilterManager from '../../components/filterManager/FilterManager';
@@ -94,7 +94,7 @@ export default class AllAdsView extends React.Component<any, IState> {
                     if (filter.searchFilter) {
                         data = data.filter((ad) => {
                             if (ad.title != undefined) {
-                                return ad.title.includes(filter.searchFilter!!)
+                                return ad.title.toLowerCase().includes(filter.searchFilter!!.toLowerCase())
                             }
                             return false;
                         })

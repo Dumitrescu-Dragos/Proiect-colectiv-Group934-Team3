@@ -5,7 +5,9 @@
     display: flex;
     align-items: stretch;
     max-width: 1050px;
-    margin: 0 auto;
+    margin: 30px auto;
+    background: #77f1fa; 
+    padding: 50px;
 
   .geosuggest__suggests--hidden {
     max-height: 0;
@@ -33,15 +35,17 @@
     h1 {
       margin-bottom: 5px;
       margin-top: 0px;
+      font-size: 3rem;
     }
 
     h3 {
+      font-size: 1.5rem;
       margin-top: 5px;
     }
 
     p {
       text-align: justify;
-      color: gray;
+      color: black;
     }
   }
 }

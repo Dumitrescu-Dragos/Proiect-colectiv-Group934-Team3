@@ -11,6 +11,7 @@ export const getmyAdsUrl: string = baseUrl + "/advertisements/myAds/" ;
 export const getCategoriesUrl: string = baseUrl + "/categories";
 export const putTool: string = baseUrl + "/tools";
 
+export const getFiltersUrl: string = baseUrl + "/advertisements/filters" ;
 /**
  * Dtos
  */
@@ -34,7 +35,7 @@ export interface UserRegister{
     firstName?: string;
     lastName?: string;
     gender?: Number;
-    DOB?: string;
+    dateOfBirth?: string;
     phoneNumber?: string;
     address?: Address;
 }

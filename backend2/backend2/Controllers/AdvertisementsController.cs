@@ -113,6 +113,7 @@ namespace backend2.Controllers
         }
 
         // GET: api/Advertisements/5
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetAdvertisement([FromRoute] int id)
         {

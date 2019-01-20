@@ -39,7 +39,7 @@ export let RegisterForm:JSX.Element =
             });
             var invite:string = '';
             var address: Address = {addressId:0, addressString:'', city:'Cluj-Napoca', country:'Romania', longitude:23, latitude:46};
-            var userregister:UserRegister = {email: '', password:'', firstName:'', lastName:'', gender:0, DOB:'', phoneNumber:'', address: address};
+            var userregister:UserRegister = {email: '', password:'', firstName:'', lastName:'', gender:0, dateOfBirth:'', phoneNumber:'', address: address};
             formData.forEach(element => {
                 switch (element.key) {
                     case "inviteid": invite = element.value; break;
@@ -47,7 +47,7 @@ export let RegisterForm:JSX.Element =
                     case "password": userregister.password = element.value; break;
                     case "firstName": userregister.firstName = element.value; break;
                     case "lastName": userregister.lastName = element.value; break;
-                    case "birthdate": userregister.DOB = element.value; break;
+                    case "birthdate": userregister.dateOfBirth = element.value; break;
                     case "phone": userregister.phoneNumber = element.value; break;
                     case "address": address.addressString = element.value; break;
                     case "gender": if(element.value=="Male") userregister.gender = 0; if(element.value=="Female") userregister.gender = 1; if(element.value=="Other") userregister.gender = 2; break;
@@ -66,13 +66,13 @@ export let RegisterForm:JSX.Element =
                 .then(res => {
                     if (res.ok) {
                         console.log("registered");
+                        window.location.reload();
                     } else {
                         console.log("not registered\n");
                         throw Error(res.statusText);
                     }
                 })
                 .catch(error => console.error(error));
-
         }}
     />;
 
