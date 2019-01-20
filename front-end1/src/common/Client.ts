@@ -49,7 +49,7 @@ export interface User{
 }
 
 export interface Category{
-    id: number;
+    categoryId: number;
     name?: string;
     description?: string;
 }
@@ -83,7 +83,7 @@ export interface DistanceObject{
 
 export interface FilterObject {
     searchFilter: string | null;
-    categoryFilter: Category | null;
+    categoryFilter: string | null;
     availableFilter: boolean;
     distanceFilter?: DistanceObject;
 }

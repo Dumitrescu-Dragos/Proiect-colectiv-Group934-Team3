@@ -98,7 +98,7 @@ export default class AllAdsView extends React.Component<any, IState> {
                     if (filter.categoryFilter) {
                         data = data.filter((ad) => {
                             if (ad.category != undefined) {
-                                return ad.category === filter.categoryFilter;
+                                return ad.category.name === filter.categoryFilter;
                             }
                             return false;
                         })
