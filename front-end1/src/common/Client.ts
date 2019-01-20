@@ -7,7 +7,8 @@ export const registerURL: string = baseUrl + "/Users/";
 export const loginURL: string = baseUrl + "/Users";
 export const getUserURL: string = baseUrl + "/Users/";
 export const getAdsUrl: string = baseUrl + "/advertisements" ;
-export const getCategoriesUrl: string = baseUrl + "/categories"
+export const getmyAdsUrl: string = baseUrl + "/advertisements/myAds/" ;
+export const getCategoriesUrl: string = baseUrl + "/categories";
 /**
  * Dtos
  */

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using backend2.Data;
 using backend2.Model;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace backend2.Controllers
 {
@@ -115,20 +116,91 @@ namespace backend2.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetAdvertisement([FromRoute] int id)
         {
+            List<Advertisement> advertisements = _context.Advertisements.ToList();
+            List<Advertisement> filteredAdvertisements = new List<Advertisement>();
+            IEnumerable<User> owners = _context.Users;
+            IEnumerable<Tool> tools = _context.Tools;
+            IEnumerable<Category> categories = _context.Categories;
+            IEnumerable<Address> locations = _context.Addresses;
+            List<ToolImage> images = _context.ToolImages.ToList();
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var advertisement = await _context.Advertisements.FindAsync(id);
+            var a = await _context.Advertisements.FindAsync(id);
 
-            if (advertisement == null)
+            if (a == null)
             {
                 return NotFound();
             }
+            a.Owner = owners.Single(x => x.Id == a.OwnerId);
+            //incluziune multipla (Advertisement contine User si User contine Advertisement)
+            a.Owner.Advertisements = null;
+            a.Tool = tools.SingleOrDefault(x => x.ToolId == a.ToolId);
+            a.Tool.Images = images.FindAll(x => x.ToolId == a.ToolId);
+            foreach (ToolImage ti in a.Tool.Images)
+            {
+                //incluziune multipla (Tool contine ToolImage si ToolImage contine Tool)
+                ti.Tool = null;
+            }
+            a.Category = categories.SingleOrDefault(x => x.CategoryId == a.CategoryId);
+            a.Location = locations.SingleOrDefault(x => x.AddressId == a.LocationId);
 
-            return Ok(advertisement);
+            return Ok(a);
         }
+        // GET: api/Advertisements/myAds/5
+        [HttpGet("myAds/{id}")]
+        public IEnumerable<Advertisement> GetMyAdvertisements([FromRoute] int id)
+        {
+            if (id == -1)
+                id = int.Parse(this.User.Claims.First(i => i.Type == ClaimTypes.Name).Value); ;
+            List<Advertisement> advertisements = _context.Advertisements.ToList();
+            List<Advertisement> filteredAdvertisements = new List<Advertisement>();
+            IEnumerable<User> owners = _context.Users;
+            IEnumerable<Tool> tools = _context.Tools;
+            IEnumerable<Category> categories = _context.Categories;
+            IEnumerable<Address> locations = _context.Addresses;
+            List<ToolImage> images = _context.ToolImages.ToList();
+            foreach (Advertisement a in advertisements)
+            {
+
+                a.Owner = owners.Single(x => x.Id == a.OwnerId);
+                //incluziune multipla (Advertisement contine User si User contine Advertisement)
+                a.Owner.Advertisements = null;
+                a.Tool = tools.SingleOrDefault(x => x.ToolId == a.ToolId);
+                a.Tool.Images = images.FindAll(x => x.ToolId == a.ToolId);
+                foreach (ToolImage ti in a.Tool.Images)
+                {
+                    //incluziune multipla (Tool contine ToolImage si ToolImage contine Tool)
+                    ti.Tool = null;
+                }
+                a.Category = categories.SingleOrDefault(x => x.CategoryId == a.CategoryId);
+                a.Location = locations.SingleOrDefault(x => x.AddressId == a.LocationId);
+
+            }
+            foreach (Advertisement a in advertisements)
+            {
+                if (a.OwnerId == id)
+                {
+                    filteredAdvertisements.Add(a);
+                }
+            }
+            return filteredAdvertisements;
+
+        }
+        
+        /*[HttpGet("myAds/{id}")]
+        public IEnumerable<Advertisement> GetMyAdvertisements([FromRoute] int id)
+        {
+            int myid = int.Parse(this.User.Claims.First(i => i.Type == ClaimTypes.Name).Value);
+
+            List<Advertisement> advertisements = _context.Advertisements.ToList();
+            var ads = advertisements.FindAll(x => x.OwnerId == myid);
+
+            return ads;
+        }*/
 
         // PUT: api/Advertisements/5
         [HttpPut("{id}")]

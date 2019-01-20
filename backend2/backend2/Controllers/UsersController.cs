@@ -46,8 +46,11 @@ namespace backend2.Controllers
                 return BadRequest(ModelState);
             }
 
+            if (id == -1)
+            {
+                id = int.Parse(this.User.Claims.First(i => i.Type == ClaimTypes.Name).Value);
+            }
             var user = await _context.Users.FindAsync(id);
-
             if (user == null)
             {
                 return NotFound();
@@ -82,17 +85,17 @@ namespace backend2.Controllers
             //invite id confirmed
             //add user address
             _context.Addresses.Add(user_to_register.Address);
-            _context.Entry(user_to_register.Address).State = EntityState.Modified;
+            //_context.Entry(user_to_register.Address).State = EntityState.Modified;
             user_to_register.AddressId = user_to_register.Address.AddressId;
 
             //add user
             _context.Users.Add(user_to_register);
-            _context.Entry(user_to_register).State = EntityState.Modified;
+            //_context.Entry(user_to_register).State = EntityState.Modified;
 
             //update context
             await _context.SaveChangesAsync();
             
-            return NoContent();
+            return Ok();
         }
 
         // POST: api/Users
