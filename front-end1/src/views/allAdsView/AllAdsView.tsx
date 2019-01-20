@@ -48,9 +48,11 @@ export default class AllAdsView extends React.Component<any, IState> {
             <div className="all-ads">
                 <Header />
                 <div className='container'>
+                    
+                    {this.state.error ? <h1 className='error'> {this.state.error} </h1> : <>
                     <FilterManager filter={this.state.filter} categories={this.state.categories} updateFunc={this.updateFilter.bind(this)} />
-                    {this.state.error ? <h1 className='error'> {this.state.error} </h1> : <> </>}
                     <AdvertisementList pageLimit={10} advertisements={this.state.advertisements} clickAdMethod={this.clickAdHandler}/>
+                     </>}
                 </div>
             </div>
         );
