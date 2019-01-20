@@ -31,11 +31,16 @@ export default class MyAdsView extends React.Component<any, IMyAdsViewState> {
                 <Header />
                 <div className='container'>
                     {this.state.error ? <h1 className='error'> {this.state.error} </h1> : <> </>}
-                    <AdvertisementList pageLimit={10} advertisements={this.state.advertisements} />
+                    <AdvertisementList pageLimit={10} advertisements={this.state.advertisements} clickAdMethod={this.clickAdHandler} />
                 </div>
             </div>
         );
     }
+
+    private clickAdHandler = (ad: Advertisement) =>{
+        console.log(ad);
+        this.props.history.push('/ad-preview');
+    };
     private loadAdsFromServer = () => {
         let token: string | null = localStorage.getItem('token');
         console.log('token', token);
