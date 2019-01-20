@@ -9,6 +9,7 @@ import { withRouter } from 'react-router-dom';
 
 interface IAdvertisementPreviewViewState {
     ad?: Advertisement;
+    error?: string;
 }
 
 class MyAdsView extends React.Component<any, IAdvertisementPreviewViewState> {
@@ -52,6 +53,7 @@ class MyAdsView extends React.Component<any, IAdvertisementPreviewViewState> {
         return (
             <div>
                 <Header />
+                {this.state.error ? <Error title='Failed to update ad' value={this.state.error} /> : <> </> }
                 <div className='container'>
                     {this.state.ad ? 
                         <AdvertisementPreview data={this.state.ad} updateStatusClick={() => {
@@ -59,7 +61,7 @@ class MyAdsView extends React.Component<any, IAdvertisementPreviewViewState> {
                                 let ad: Advertisement = this.state.ad;
                                 if (ad.tool) {
                                     ad.tool.isAvailable = ! ad.tool.isAvailable;
-                                    RequestService.doUPDATE(putTool + '/' + ad.tool.toolId, {
+                                    RequestService.doUPDATE(putTool + '/' + ad.id, {
                                         "ToolId": ad.tool.toolId,
                                         "Name": ad.tool.name,
                                         "TechSpecs": ad.tool.techSpec,
@@ -67,7 +69,8 @@ class MyAdsView extends React.Component<any, IAdvertisementPreviewViewState> {
                                     }, token)!!
                                     .then((res) => {
                                         this.setState({ad: ad});
-                                    });
+                                    })
+                                        .catch((err) => {this.setState({error: "You can not modify the state for this ad."})});
                                 }
 
                             }

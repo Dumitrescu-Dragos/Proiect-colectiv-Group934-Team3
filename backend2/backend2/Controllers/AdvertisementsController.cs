@@ -156,7 +156,7 @@ namespace backend2.Controllers
         public IEnumerable<Advertisement> GetMyAdvertisements([FromRoute] int id)
         {
             if (id == -1)
-                id = int.Parse(this.User.Claims.First(i => i.Type == ClaimTypes.Name).Value); ;
+                id = int.Parse(this.User.Claims.First(i => i.Type == ClaimTypes.Name).Value);
             List<Advertisement> advertisements = _context.Advertisements.ToList();
             List<Advertisement> filteredAdvertisements = new List<Advertisement>();
             IEnumerable<User> owners = _context.Users;

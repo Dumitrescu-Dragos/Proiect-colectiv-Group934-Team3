@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using backend2.Data;
 using backend2.Model;
+using System.Security.Claims;
 
 namespace backend2.Controllers
 {
@@ -51,12 +52,19 @@ namespace backend2.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTool([FromRoute] int id, [FromBody] Tool tool)
         {
+
+            var adv = await _context.Advertisements.FindAsync(id);
+            if(adv.OwnerId != int.Parse(this.User.Claims.First(i => i.Type == ClaimTypes.Name).Value))
+            {
+                return BadRequest(ModelState);
+            }
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != tool.ToolId)
+            if (adv.ToolId != tool.ToolId)
             {
                 return BadRequest();
             }
@@ -69,7 +77,7 @@ namespace backend2.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ToolExists(id))
+                if (!ToolExists(tool.ToolId))
                 {
                     return NotFound();
                 }
